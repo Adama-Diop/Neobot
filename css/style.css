@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+  max-width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: rgb(238, 230, 255);
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 300px;
+  background: rgba(255, 166, 0, 0.6);
+  opacity: 0;
+  animation: anim 20s forwards;
+  filter: hue-rotate(0deg);
+}
+
+@keyframes anim {
+  to {
+    top: -250px;
+    bottom: var(--bottom);
+    opacity: 0.4;
+    filter: hue-rotate(-200deg)
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container .side-bar {
+  width: 100%;
+  min-height: 100vh;
+  flex: 1;
+  background-color: white;
+  z-index: 1;
+}
+
+.container .side-bar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 10px 80px 10px;
+}
+
+.container .side-bar .liens {
+  display: block;
+}
+
+.container .side-bar .liens a {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  padding-bottom: 80px;
+  color: rgb(116, 116, 116);
+}
+
+.container .side-bar .connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 55px;
+}
+
+.container .side-bar img {
+  width: 50px;
+  height: 50px;
+}
+
+.container .robots-container {
+  width: 100%;
+  height: 100%;
+  flex: 5;
+  padding: 0 80px;
+  z-index: 1;
+}
+
+.container .robots-container .mes-robots {
+  margin-top: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .robots-container .mes-robots h2 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.container .robots-container .mes-robots a {
+  background-color: rgb(83, 0, 227);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 23px;
+}
+
+.container .robots-container .etat-robots {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.container .robots-container .etat-robots .etat {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 50px;
+}
+
+.container .robots-container .etat-robots .etat.b {
+  background-color: rgb(241, 192, 255);
+  border: 2px solid rgb(161, 26, 161);
+}
+
+.container .robots-container .etat-robots .etat.p {
+  background-color: rgb(255, 178, 150);
+  border: 2px solid orangered;
+}
+
+.container .robots-container .etat-robots .etat.f {
+  background-color: rgb(217, 253, 206);
+  border: 2px solid green;
+}
+
+.container .robots-container .liste-robots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.container .robots-container .liste-robots .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  min-width: 260px;
+  min-height: 360px;
+}
+
+.container .robots-container .liste-robots .card img {
+  width: 200px;
+  height: 230px;
+}
+
+.container .robots-container .liste-robots .card p {
+  position: absolute;
+  top: 2px;
+  right: 20px;
+}
+
+.container .robots-container .liste-robots .card .actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.container .robots-container .liste-robots .card .actions a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
