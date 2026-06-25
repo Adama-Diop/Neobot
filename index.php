@@ -1,3 +1,18 @@
+<?php
+
+$greet_msg = "";
+session_start();
+if (!isset($_SESSION['client_id'])) {
+    // Pas connecté -> redirection vers la page de connexion
+    header('Location: login.php');
+    exit();
+} else {
+    $greet_msg = "Bienvenue, " . $_SESSION['pseudo'] . " !";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +56,7 @@
         <section class="robots-container">
             <div class="mes-robots">
                 <h2>Mes Robots</h2>
-                <a href="http://localhost/neobot/achatrobot.php">➕ Créer un robot</a>
+                <a href="http://localhost/neobot/listerobots.php">➕ Créer un robot</a>
             </div>
             <p>Retrouvez ici tous les robots que vous avez créés.</p>
             <p>Modifiez-les, supprimez-les ou mettez-les en production.</p>
