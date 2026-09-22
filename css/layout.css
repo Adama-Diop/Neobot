@@ -1,0 +1,111 @@
+.fixed-navbar {
+    background-color: white;
+
+
+    /*securité pour meyttre une scroll bar si ecran trop petit*/
+
+}
+
+/* etat barre laterale fermée */
+.close {
+    display: none;
+}
+
+.burger,
+.close {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.fixed-navbar-show-hide {
+    display: none;
+}
+
+/* etat barre laterale visible */
+.show .burger {
+    display: none;
+}
+
+.show .close {
+    display: block;
+}
+
+.show .fixed-navbar-show-hide {
+    display: block;
+
+}
+
+/* CSS d'habillage */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30%;
+    gap: 10px;
+    /* margin: 40px auto; */
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 70%;
+    /* padding: 20px 0; */
+    /* padding: 40px 20px; */
+    /* gap: 120px; */
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: gray;
+}
+
+.link a {
+    color: gray;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+
+
+.main-container {
+    /* margin: 0 50px 0 190px; */
+    padding-top: 10px;
+    flex-grow: 1;
+}
+
+/* tablet */
+@media screen AND (min-width:450px) {}
+
+
+/* laptop */
+@media screen AND (min-width:850px) {
+    .fixed-navbar {
+        /* background-color: white; */
+        position: fixed;
+        left: 0;
+        width: 190px;
+        height: 100vh;
+        overflow-y: auto;
+
+        /*securité pour meyttre une scroll bar si ecran trop petit*/
+
+    }
+
+    .fixed-navbar-show-hide {
+        display: block;
+    }
+
+    .main-container {
+        margin: 0 0 0 190px;
+    }
+}

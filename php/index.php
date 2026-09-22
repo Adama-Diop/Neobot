@@ -56,7 +56,7 @@ if (!isset($_SESSION['client_id'])) {
         <section class="robots-container">
             <div class="mes-robots">
                 <h2>Mes Robots</h2>
-                <a href="http://localhost/neobot/listerobots.php">➕ Créer un robot</a>
+                <a href="http://localhost/neobot/creationrobot.php">➕ Créer un robot</a>
             </div>
             <p>Retrouvez ici tous les robots que vous avez créés.</p>
             <p>Modifiez-les, supprimez-les ou mettez-les en production.</p>

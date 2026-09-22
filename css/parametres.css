@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    margin: 0;
+    font-family: Poppins;
+    background-image: url("../img/fond_body.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+h2 {
+    font-size: 1.5em;
+    max-width: 600px;
+    margin: 55px 0 0 60px;
+}
+
+h3 {
+    font-size: 1.1em;
+    margin: 0;
+    font-weight: 500;
+}
+
+p {
+    margin: 0;
+    font-size: 0.87em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+}
+
+.fixed-navbar {
+    background-color: white;
+    position: fixed;
+    bottom: auto;
+    left: 0;
+    width: 190px;
+    height: 100vh;
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 120px;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: gray;
+}
+
+.link a {
+    color: gray;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px auto;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.main-container {
+    margin: 0 50px 0 190px;
+    flex-grow: 1;
+}
+
+.main-container>p {
+    margin-left: 60px;
+}
+
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 60px 0 0 60px;
+}
+
+.grid-section .subs {
+    grid-column: span 2;
+    margin: 0;
+}
+
+.section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.leading-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0 40px 0;
+}
+
+.delete-account {
+    margin: 60px 0 40px 60px;
+}
+
+.delete-account .leading-section {
+    margin: 0;
+}
+
+.leading-section img {
+    width: 50px;
+    height: 50px;
+}
+
+.text-part {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.infos-part {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 25px;
+}
+
+.infos-part img {
+    width: 90px;
+    height: 90px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+form input {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    max-width: 310px;
+    height: 25px;
+    border-radius: 7px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+form button {
+    max-width: 310px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7749e0;
+    color: white;
+    padding: 10px 0;
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.security-options {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.auth {
+    margin: 20px 0;
+}
+
+.current-sub {
+    background-color: #f9f6ff;
+    border: 1px solid #d6d0e0;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.current-sub:first-child {
+    font-weight: 200;
+}
+
+.current-sub a {
+    font-size: 0.9em;
+    background-color: #F2ECFD;
+    padding: 8px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    text-align: center;
+    font-weight: 500;
+    color: #9319da;
+    border: 2px solid #c2a3d4;
+}
+
+.sub-title {
+    font-size: 21px;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+.sub-pros {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    margin: 35px 0;
+}
+
+.pros {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px 25px;
+}
+
+.delete-account a {
+    font-size: 0.9em;
+    color: red;
+    font-weight: 500;
+    background-color: rgb(255, 243, 243);
+    border: 2px solid rgb(252, 196, 196);
+    border-radius: 9px;
+    padding: 10px 12px;
+}
+
+footer {
+    display: flex;
+    margin: 0 50px 0 190px;
+    padding: 0 0 0 60px;
+    justify-content: space-between;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    font-size: 0.7em;
+    color: gray;
+}
