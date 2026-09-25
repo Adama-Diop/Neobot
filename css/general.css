@@ -9,25 +9,35 @@ body {
     background-image: url("../img/fond_body.png");
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
-hr {
-    width: 300px;
-    margin: 40px auto;
+body:has(.fixed-navbar.show) {
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 1.3em;
 }
 
 h2 {
     font-size: 1.5em;
-    margin: 40px 0;
-    text-align: center;
 }
 
 h3 {
     font-size: 1.1em;
-    text-align: center;
 }
 
 h4 {
     font-size: 0.9em;
-    font-weight: 570;
+    font-weight: 500;
+}
+
+h6 {
+    font-size: 0.6em;
+    margin: 7px 0;
+}
+
+a {
+    text-decoration: none;
 }

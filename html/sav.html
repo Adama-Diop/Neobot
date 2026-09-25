@@ -7,6 +7,10 @@
     <title>Contact</title>
 
     <link rel="stylesheet" href="../css/sav.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel='stylesheet'
@@ -20,11 +24,15 @@
         href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 </head>
 
 <body>
-    <section class="container">
-        <header class="fixed-navbar">
+    <header class="fixed-navbar">
+        <a href="" class="burger"><i class="fi fi-br-menu-burger"></i></a>
+        <a href="" class="close"><i class="fi fi-br-cross"></i></a>
+        <div class="fixed-navbar-show-hide">
             <div class="logo">
                 <img src="../img/logoNeo.png" alt="logo">
             </div>
@@ -40,8 +48,11 @@
                 <div class="link">
                     <i class="fi fi-rr-settings"></i>
                     <a href="">Paramètres</a>
+                </div>
             </nav>
-        </header>
+        </div>
+    </header>
+    <div class="container">
         <main class="main-container">
 
             <section class="accroche">
@@ -51,14 +62,14 @@
                     <div class="pros">
                         <div class="side">
                             <i class="fi fi-sr-bolt" style="font-size: 40px; color: blueviolet;"></i>
-                            <div>
+                            <div class="side-text">
                                 <p>Réponse rapide</p>
                                 <p>Nous répondrons sous 24h ouvrées</p>
                             </div>
                         </div>
                         <div class="side">
                             <i class="fi fi-sc-headset" style="font-size: 40px; color: blueviolet;"></i>
-                            <div>
+                            <div class="side-text">
                                 <p>Equipe dédiée</p>
                                 <p>Des experts NeoBot à votre écoute</p>
                             </div>
@@ -143,7 +154,8 @@
 
             </section>
         </main>
-    </section>
+        </section>
+    </div>
 
     <footer>
         <div class="background-footer">
@@ -175,6 +187,7 @@
     </footer>
 
     <script src="../js/sav.js"></script>
+    <script src="../js/burger.js"></script>
 </body>
 
 </html>

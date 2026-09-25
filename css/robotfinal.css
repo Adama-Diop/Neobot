@@ -22,11 +22,6 @@ h2 {
     text-align: center;
 }
 
-h3 {
-    font-size: 1.1em;
-    text-align: center;
-}
-
 h4 {
     font-size: 0.9em;
     font-weight: 570;
@@ -44,9 +39,6 @@ h4 {
     width: 190px;
     height: 100vh;
     overflow-y: auto;
-
-   
-
 }
 
 .navbar-links {
@@ -90,52 +82,42 @@ h4 {
     flex-grow: 1;
 } */
 
-.robot-name {
-    font-size: 1.1em;
+
+
+
+
+
+
+
+/* MOBILE FIRST */
+h3 {
+    text-align: center;
 }
 
-.description-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 120px;
-    margin: 60px 0 0 60px;
-    background-color: #c398e079;
-    padding: 15px 18px 15px 0;
-    border-radius: 20px;
-    border: 2px solid #c398e0;
+hr {
+    margin-top: 40px;
 }
 
-.description-container img {
-    height: 300px;
-    padding-left: 80px;
+.debrief-container {
+    display: block;
+    padding: 0;
+    margin: 0;
 }
 
-.description {
-    font-size: 12px;
-    text-align: left;
-    background-color: white;
-    border-radius: 20px;
-    margin: 60px 0 0 60px;
-    padding: 20px;
-}
-
-.description h3 {
-    font-size: 1.5em;
-}
-
-.description p {
-    font-size: 1.1em;
+.debrief-container img {
+    height: 200px;
+    display: block;
+    margin: 0 auto;
 }
 
 .debrief {
     background-color: white;
     border-radius: 20px;
-    padding: 0 15px;
+    padding: 10px 15px;
+    margin: 40px 0;
 }
 
 .steps {
-    display: flex;
-    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -174,33 +156,42 @@ h4 {
     font-size: 0.7em;
 }
 
-.price {
-    padding-right: 20px;
-}
-
 .price p {
     font-size: 0.9em;
     font-weight: 500;
-    text-align: right;
+    text-align: center;
+}
+
+.description {
+    text-align: left;
+    border-radius: 20px;
+    margin: 80px 0;
+}
+
+.description h3 {
+    font-size: 1.27em;
+}
+
+.description p {
+    font-size: 0.8em;
+    text-align: center;
 }
 
 .choice {
     display: flex;
-    justify-content: space-around;
-    gap: 60px;
-    background-color: white;
-    border-radius: 13px;
-    padding: 20px 65px;
-    max-width: 750px;
-    margin: 0 auto;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
 }
 
 .choice .buttons {
+    background-color: white;
+    border-radius: 13px;
+    padding: 15px 30px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 300px;
     flex: 1;
 }
 
@@ -213,133 +204,173 @@ h4 {
     text-decoration: none;
     color: white;
     background-color: blueviolet;
+    padding: 5px 10px;
     border-radius: 25px;
-    font-size: 0.8em;
-    padding: 5px 15px;
+    font-size: 0.7em;
 }
 
-/* ############################################################################################################################################################################### */
+
+/* TABLET */
 
 @media screen AND (min-width:450px) {
-    /* .main-container{
-        margin-left:190px;
 
-    } */
+    .steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .choice {
+        align-items: center;
+    }
+
+    .buttons {
+        width: 70%;
+    }
 }
 
 
+/* LAPTOP */
 
-/* MOBILE FIRST  */
+@media screen AND (min-width:850px) {
 
-/* h1 {
-    font-size: clamp(1.8rem, 2vw, 2.4rem);
-}
+    h2 {
+        margin: 40px 0;
+        text-align: center;
+    }
 
-h2 {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-}
+    hr {
+        width: 300px;
+    }
 
-h3 {
-    text-align: center;
-    margin: 50px 0;
-}
+    .robot-name {
+        font-size: 1.1em;
+    }
 
-h4 {
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 auto;
-    text-align: center;
-}
+    .debrief-container {
+        display: flex;
+        align-items: center;
+        margin: 60px 60px 0 60px;
+        background-color: #c398e079;
+        padding: 15px 0;
+        border-radius: 20px;
+        border: 2px solid #c398e0;
+    }
 
-.fixed-navbar {
-    background-color: blueviolet;
-    position: fixed;
-    height: 60px;
-    bottom: 0;
-    width: 100vw;
-}
+    .debrief-container img {
+        height: 300px;
+    }
 
-.logo {
-    display: none;
-}
-
-.navbar-links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 60px;
-}
-
-.navbar-links a {
-    text-decoration: none;
-    color: white;
-}
-
-.main-container {
-    margin: 20px;
-    text-align: center;
-}
-
-.robot-name {
-    color: blueviolet;
-}
-
-.description-container img {
-    width: 300px;
-    height: 365px;
-}
-
-.debrief {
-    text-align: left;
-}
-
-.description {
-    padding: 0 0 20px 15px;
-}
-
-.price {
-    font-size: 18px;
-    text-align: right;
-    font-weight: 600;
-}
-
-.choice {
-    margin: 60px auto;
-}
-
-.choice .buttons {
-    height: 110px;
-}
-
-.choice .buttons p {
-    margin-bottom: 30px;
-}
-
-.choice .buttons a {
-    text-decoration: none;
-    color: white;
-    background-color: blueviolet;
-    border-radius: 4px;
-    padding: 15px;
-}
-
-footer {
-    display: none;
-}
-
-@media (min-width: 768px) {
     .debrief {
-        margin: auto 55px;
+        background-color: white;
+        border-radius: 20px;
+        padding: 0 15px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .number {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .number>p {
+        font-size: 0.6em;
+    }
+
+    .name-step {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .name-step span {
+        background: blueviolet;
+        border-radius: 50px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.7em;
+        margin: auto;
+        text-align: center;
+        line-height: 20px;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+    }
+
+    .name-step p {
+        margin: 0;
+        font-weight: 500;
+        font-size: 0.7em;
+    }
+
+    .price {
+        padding-right: 20px;
+    }
+
+    .price p {
+        font-size: 0.9em;
+        font-weight: 500;
+        text-align: right;
     }
 
     .description {
-        padding: 0 0 20px 0;
+        font-size: 12px;
+        text-align: left;
+        background-color: white;
+        border-radius: 20px;
+        margin: 60px 60px 0 60px;
+        padding: 20px;
+    }
+
+    .description h3 {
+        font-size: 1.5em;
+    }
+
+    .description p {
+        font-size: 1.1em;
     }
 
     .choice {
         display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin: 60px 0 90px 0;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 60px;
+        background-color: white;
+        border-radius: 13px;
+        padding: 20px 65px;
+        max-width: 750px;
+        margin: 0 auto;
     }
-} */
+
+    .choice .buttons {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 300px;
+        flex: 1;
+    }
+
+    .choice .buttons p {
+        margin: 0;
+        font-size: 0.9em;
+    }
+
+    .choice .buttons a {
+        text-decoration: none;
+        color: white;
+        background-color: blueviolet;
+        border-radius: 25px;
+        font-size: 0.8em;
+        padding: 5px 15px;
+    }
+}
+
+/* ############################################################################################################################################################################### */

@@ -1,172 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-html,
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-size: 1rem;
-    margin: 0;
-    font-family: Poppins;
-    background-image: url("../img/fond_body.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-h1 {
-    font-size: 1.4em;
-}
 
 
 h3 {
     margin: 0;
-    font-size: 1.1em;
     font-weight: 600;
-}
-
-h4 {
-    font-size: 0.8em;
-    font-weight: 470;
-}
-
-h6 {
-    font-size: 0.6;
-    margin: 7px 0;
 }
 
 p {
     margin: 0;
 }
 
-a {
-    text-decoration: none;
-}
-
-.container {
-    display: flex;
-}
-
-.fixed-navbar {
-    background-color: white;
-    position: fixed;
-    bottom: auto;
-    left: 0;
-    width: 190px;
-    height: 100vh;
-}
-
-.navbar-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px 20px;
-    gap: 120px;
-}
-
-.link {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: gray;
-}
-
-.link a {
-    color: gray;
-    font-size: 0.8em;
-    text-decoration: none;
-}
-
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 40px auto;
-}
-
-.logo img {
-    width: 100px;
-    height: 100px;
-}
-
-.main-container {
-    margin: 0 50px 0 190px;
-    flex-grow: 1;
-}
-
-.accroche,
-.faq,
-.contact {
-    padding-left: 60px;
-}
+/* MOBILE */
 
 .accroche {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 45px;
 }
 
-.accroche .title {
-    margin: 40px 0;
+.title {
+    text-align: center;
 }
 
 .title p {
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
-.accroche .pros {
+.pros {
+    padding-top: 40px;
     display: flex;
-    justify-content: space-between;
-    margin-top: 60px;
-    gap: 25px;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .side {
     display: flex;
+    gap: 25px;
+    height: 120px;
     align-items: center;
-    gap: 10px;
-    width: 50%;
-    height: 130px;
     background-color: #fff;
     border-radius: 15px;
-    padding: 20px 30px;
+    padding: 10px 20px;
 }
 
-.side p {
-    font-size: 0.8em;
-}
-
-.robot-assistant {
-    text-align: center;
+.side-text {
+    text-align: left;
 }
 
 .robot-assistant img {
-    width: 260px;
-    height: 260px;
-    filter: drop-shadow(0 15px 8px rgba(114, 68, 141, 0.3));
+    display: none;
+}
+
+.faq {
+    margin-top: 50px;
+}
+
+.faq h3,
+h4 {
+    text-align: center;
 }
 
 .questions {
     background-color: white;
     padding: 25px;
     border-radius: 10px;
-    margin-top: 50px;
-}
-
-.faq {
-
-    margin: 0 auto;
-}
-
-.faq h3 {
-    margin-bottom: 2rem;
-}
-
-.faq-item {
-    border-bottom: 1px solid #ddd;
 }
 
 .faq-question {
@@ -200,118 +96,146 @@ a {
     font-size: 0.8em;
 }
 
-.contact {
-    margin-top: 90px;
-}
 
-.contact-container {
-    display: flex;
-    gap: 35px;
-}
+/* LAPTOP */
 
-.contact-form {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px 30px;
-    flex: 1;
-}
+@media screen AND (min-width: 850px) {
 
-form {
-    display: flex;
-    flex-direction: column;
-}
+    .accroche,
+    .faq,
+    .contact {
+        margin: 60px 60px 0 60px;
+    }
 
-form label {
-    margin: 20px 0 10px 0;
-    font-size: 0.8em;
-}
+    .accroche {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-form input:nth-child(-n + 4) {
-    border: 1px solid grey;
-    border-radius: 8px;
-    padding: 5px 10px;
-}
+    .accroche .title {
+        margin: 40px 0;
+    }
 
-form button {
-    width: 230px;
-    margin: 30px auto 0 auto;
-    border: none;
-    border-radius: 10px;
-    background-color: #7749e0;
-    color: white;
-    padding: 10px 0;
-    font-family: 'Poppins';
-    font-size: 14px;
-}
+    .title p {
+        font-size: 0.9em;
+    }
 
-.others-contact {
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px 30px;
-    flex: 1;
-}
+    .accroche .pros {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 60px;
+        gap: 25px;
+        padding: 0;
+    }
 
-.canaux {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    margin-top: 60px;
-}
+    .side {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 50%;
+        height: 130px;
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 20px 30px;
+    }
 
-.canal {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    border: 1px solid rgb(191, 161, 219);
-    border-radius: 10px;
-    padding: 10px 25px;
-}
+    .side p {
+        font-size: 0.8em;
+    }
 
-.canal p {
-    font-size: 0.8em;
-}
+    .robot-assistant {
+        text-align: center;
+    }
 
-footer {
-    background-color: white;
-    margin-top: 80px;
-}
+    .robot-assistant img {
+        width: 260px;
+        height: 260px;
+        filter: drop-shadow(0 15px 8px rgba(114, 68, 141, 0.3));
+    }
 
-.background-footer {
-    margin: 0 40px 0 300px;
-    display: flex;
-    gap: 200px;
-    align-items: center;
-}
+    .questions {
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin-top: 50px;
+    }
 
-.logo-footer img {
-    width: 80px;
-    height: 80px;
-}
+    .faq h3,
+    h4 {
+        text-align: left;
+    }
 
-.mentions-legales {
-    display: flex;
-    justify-content: space-between;
-    flex: 1;
-}
+    .contact {
+        margin-top: 90px;
+    }
 
-.mentions-legales .liens-utiles p {
-    font-size: 0.6em;
-    margin-bottom: 4px;
-}
+    .contact-container {
+        display: flex;
+        gap: 35px;
+    }
 
-.mentions-legales .support p {
-    font-size: 0.6em;
-    margin-bottom: 4px;
-}
+    .contact-form {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 20px 30px;
+        flex: 1;
+    }
 
-.social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 
-.media {
-    width: 25px;
-    height: 25px;
+    form label {
+        margin: 20px 0 10px 0;
+        font-size: 0.8em;
+    }
+
+    form input:nth-child(-n + 4) {
+        border: 1px solid grey;
+        border-radius: 8px;
+        padding: 5px 10px;
+    }
+
+    form button {
+        width: 230px;
+        margin: 30px auto 0 auto;
+        border: none;
+        border-radius: 10px;
+        background-color: #7749e0;
+        color: white;
+        padding: 10px 0;
+        font-family: 'Poppins';
+        font-size: 14px;
+    }
+
+    .others-contact {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 20px 30px;
+        flex: 1;
+    }
+
+    .canaux {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        margin-top: 60px;
+    }
+
+    .canal {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        border: 1px solid rgb(191, 161, 219);
+        border-radius: 10px;
+        padding: 10px 25px;
+    }
+
+    .canal p {
+        font-size: 0.8em;
+    }
 }
