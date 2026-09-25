@@ -1,6 +1,7 @@
 .fixed-navbar {
     background-color: white;
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 150px;
 }
 
@@ -54,8 +55,7 @@
     height: 70%;
 }
 
-.link,
-.buttons {
+.link {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -88,71 +88,12 @@
 /* mobile */
 @media screen AND (min-width:320px) {
     .container {
-        margin: 0;
+        margin: 100px 0 0 0;
         padding: 0 40px;
     }
 }
 
 
+
+
 /* laptop */
-@media screen AND (min-width:850px) {
-
-    .container {
-        padding: 0;
-    }
-
-    .fixed-navbar {
-        position: fixed;
-        left: 0;
-        width: 190px;
-        height: 100vh;
-        overflow-y: auto;
-        /*securité pour meyttre une scroll bar si ecran trop petit*/
-    }
-
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 30%;
-        gap: 10px;
-        padding: 0;
-        /* margin: 40px auto; */
-    }
-
-    .logo img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .show .close {
-        display: none;
-    }
-
-    .burger {
-        display: none;
-    }
-
-    .fixed-navbar-show-hide {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100vh;
-        position: fixed;
-        left: 0;
-        width: 190px;
-        height: 100vh;
-        overflow-y: auto;
-    }
-
-    .show .fixed-navbar-show-hide {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100vh;
-    }
-
-    .main-container {
-        margin: 0 0 0 190px;
-    }
-}

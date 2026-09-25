@@ -5,8 +5,6 @@ footer {
     margin-top: 80px;
 }
 
-
-
 .background-footer {
     display: flex;
     align-items: center;
@@ -43,7 +41,30 @@ footer {
     height: 20px;
 }
 
+@media screen AND (min-width: 768px) {
+
+    .background-footer {
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    .logo-footer {
+        display: block;
+    }
+
+    .logo-footer img {
+        display: block;
+        width: 70px;
+        height: 70px;
+    }
+
+    .mentions-legales {
+        max-width: 600px;
+    }
+}
+
 @media screen AND (min-width: 850px) {
+
 
     footer {
         background-color: white;
