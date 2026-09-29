@@ -188,14 +188,20 @@ p {
 
     .container .intro-container {
         flex-direction: row;
+        align-items: center;
     }
 
     .text-intro {
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     .text-intro p {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+    }
+
+    .container .intro-container a {
+        margin: 0 auto;
+        padding: 10px 15px;
     }
 
     .steps-container {
@@ -247,6 +253,39 @@ p {
         text-align: center;
         padding: 0;
     }
+
+    .steps {
+        flex-direction: row;
+    }
+
+    .step {
+        flex: 1;
+    }
+
+    .step-image {
+        align-items: flex-start;
+    }
+
+    .fleches {
+        transform: rotate(-360deg);
+        align-self: center;
+    }
+
+    .community-container {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 20px 30px;
+    }
+
+    .community-container p {
+        width: 40%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .community-container a {
+        width: 40%;
+    }
 }
 
 
@@ -290,16 +329,16 @@ p {
     }
 
     .fleches {
-        transform: rotate(-90deg);
+        transform: rotate(-360deg);
     }
 
     .cta {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-direction: row;
         align-items: center;
         padding: 20px;
-        width: 1000px;
+        width: 90%;
     }
 
     .cta img {

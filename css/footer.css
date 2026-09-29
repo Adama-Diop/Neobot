@@ -72,15 +72,19 @@ footer {
     }
 
     .background-footer {
-        margin: 0 40px 0 300px;
+        margin-left: 190px;
         display: flex;
-        gap: 200px;
+        gap: 80px;
         align-items: center;
     }
 
     .logo-footer img {
         width: 80px;
         height: 80px;
+    }
+
+    .mentions-legales {
+        color: black;
     }
 
     .mentions-legales .liens-utiles p {

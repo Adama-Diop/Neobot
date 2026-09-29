@@ -1,3 +1,14 @@
+/* MOBILE */
+
+.container {
+    margin: 70px 0 0 0;
+    padding: 0 40px;
+}
+
+.main-container {
+    padding-top: 10px;
+}
+
 .fixed-navbar {
     background-color: white;
     position: fixed;
@@ -80,20 +91,6 @@
     align-items: flex-start;
 }
 
-.main-container {
-    /* margin: 0 50px 0 190px; */
-    padding-top: 10px;
-}
-
-/* mobile */
-@media screen AND (min-width:320px) {
-    .container {
-        margin: 100px 0 0 0;
-        padding: 0 40px;
-    }
-}
 
 
-
-
-/* laptop */
+/* LAPTOP */
