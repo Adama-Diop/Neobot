@@ -3,8 +3,11 @@
 /** @var mysqli|null $connection */
 $GLOBALS['connection'] = null;
 
+
 function open_connection()
 {
+    $config = require_once PATH_ROOT . "/config/secret.php";
+
     if (!$GLOBALS['connection']) {
         $servername = "localhost";
         $username = "root";

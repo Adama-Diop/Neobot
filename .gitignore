@@ -1,0 +1,7 @@
+# vscode settings
+*.code-workspace
+
+# secrets et config de l'app
+secret.php
+secret*.php
+!secret-sample.php

@@ -2,12 +2,13 @@
 
 require_once PATH_ROOT . '/models/sql_connection.php';
 
-
-
 function logIn()
 {
     $username = "";
     $error_msg = "";
+    // Démarrage de la session
+    session_start();
+    // Cer test ne passe pas on reste redirigé vers login (derriere URL il y a index.php )
     if (isset($_SESSION['client_id'])) {
         // connecté -> redirection vers la page d'accueil
         header('Location:' . URL);
@@ -24,12 +25,14 @@ function logIn()
             $password = $_POST['mdp'];
 
             open_connection();
-
-            $sql = "SELECT id, pseudo, mdp FROM Clients WHERE pseudo = ?";
+            // Ici le ? sert a protéger des injections SQL garce au smtmt_bnd_parameter
+            $sql = "SELECT id, pseudo, mdp FROM Clients WHERE pseudo =?";
             try {
                 $stmt = mysqli_prepare($GLOBALS['connection'], $sql);
+                // Si injection l'incstruction ci dessus bloque
                 mysqli_stmt_bind_param($stmt, "s", $username);
                 mysqli_stmt_execute($stmt);
+                // $result la requete SQL brute
                 $result = mysqli_stmt_get_result($stmt);
             } catch (mysqli_sql_exception $e) {
                 $error_msg =  "Erreur SQL :  " . $e;
@@ -38,19 +41,20 @@ function logIn()
             if (isset($result)) {
 
                 if (mysqli_num_rows($result) == 1) {
+                    // Ici ûser contient le resiultat de la requete affiné
                     $user = mysqli_fetch_assoc($result);
 
                     if (password_verify($password, $user['mdp'])) {
-                        // Démarrage de la session
-                        session_start();
 
+                        // ici $user[id''] est bien rempli
                         // Stockage des informations utiles en session
+
                         $_SESSION['client_id'] = $user['id'];
                         $_SESSION['pseudo'] = $user['pseudo'];
 
                         // Redirection vers la page d'accueil
                         close_connection();
-                        header('Location:' . URL);
+                        header('Location:' . URL . "/index.php?action=listerobots");
                         exit();
                     } else {
                         $error_msg =  "Mot de passe incorrect.";
@@ -63,37 +67,10 @@ function logIn()
             close_connection();
         }
     }
+    require_once PATH_ROOT . '/view/login.php'
 ?>
 
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <title>Log In</title>
-        <link rel="stylesheet" href="../css/connexion.css">
-    </head>
-
-    <body>
-        <h1>Se connecter</h1>
-        <p> <?= $error_msg ?> </p>
-
-        <form method="POST" action="">
-            <img src="./img/logo neobot.png" alt="" width="50px" height="60px">
-            <h2>NEOBOT</h2>
-
-            <label>Pseudo</label>
-            <input class="input" type="text" name="pseudo" value="<?= $username ?>"><br><br>
-
-            <label>Mot de passe</label>
-            <input class="input" type="mdp" name="mdp"><br><br>
-
-            <input id="submit" type="submit" name="update" value="Se connecter">
-            <a href="signin.php">Créer un compte</a>
-        </form>
-
-    </body>
-
-    </html>
+ 
 <?php
 }
 
