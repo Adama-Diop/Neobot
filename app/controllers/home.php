@@ -9,5 +9,6 @@ function homeAction()
         // return;
         exit();
     }
+
     require_once PATH_ROOT . '/view/homeView.php';
 }

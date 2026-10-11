@@ -39,109 +39,46 @@
             <div class="liste-robots">
 
                 <!-- Debut de loop for -->
-                <?php
-                foreach ($robots as $robot) : ?>
+                <?php foreach ($robots as $robot) : ?>
                     <div class="card">
-                        <h3><?= $robot['nom'] ?></h3>
+                        <h3><?= htmlspecialchars($robot['nom'], ENT_QUOTES, 'UTF-8') ?></h3>
+
                         <img src="./view/img/rendu-robot-final2.png" alt="robot">
-                        <em><?= $robot['date_creation'] ?></em>
+
+                        <em><?= htmlspecialchars($robot['date_creation'], ENT_QUOTES, 'UTF-8') ?></em>
+
                         <div class="actions">
+
+                            <!-- Bouton Modifier -->
                             <div class="action-button">
                                 <span>🖋️</span>
-                                <a href="#">Modifier</a>
+                                <a href="<?= URL ?>/?action=creationrobot&robot=<?= $robot['id'] ?>">
+                                    Modifier
+                                </a>
                             </div>
+
+                            <!-- Bouton Supprimer -->
                             <div class="action-button">
                                 <span>🗑️</span>
-                                <a href="#">Supprimer</a>
+
+                                <form
+                                    method="post"
+                                    action="<?= htmlspecialchars(URL . '/?action=supprimerrobot', ENT_QUOTES, 'UTF-8') ?>"
+                                    onsubmit="return confirm('Voulez-vous vraiment supprimer ce robot ? Cette action est définitive.');">
+                                    <input
+                                        type="hidden"
+                                        name="robot_id"
+                                        value="<?= (int)$robot['id'] ?>">
+
+                                    <button type="submit" class="btn-supprimer">
+                                        Supprimer
+                                    </button>
+                                </form>
                             </div>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-                <div class="card">
-                    <img src="../img/rendu-robot-final2.png" alt="robot">
-                    <p>...</p>
-                    <div class="actions">
-                        <div class="action-button">
-                            <span>🖋️</span>
-                            <a href="#">Modifier</a>
-                        </div>
-                        <div class="action-button">
-                            <span>🗑️</span>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="../img/rendu-robot-final2.png" alt="robot">
-                    <p>...</p>
-                    <div class="actions">
-                        <div class="action-button">
-                            <span>🖋️</span>
-                            <a href="#">Modifier</a>
-                        </div>
-                        <div class="action-button">
-                            <span>🗑️</span>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="../img/rendu-robot-final2.png" alt="robot">
-                    <p>...</p>
-                    <div class="actions">
-                        <div class="action-button">
-                            <span>🖋️</span>
-                            <a href="#">Modifier</a>
-                        </div>
-                        <div class="action-button">
-                            <span>🗑️</span>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="../img/rendu-robot-final2.png" alt="robot">
-                    <p>...</p>
-                    <div class="actions">
-                        <div class="action-button">
-                            <span>🖋️</span>
-                            <a href="#">Modifier</a>
-                        </div>
-                        <div class="action-button">
-                            <span>🗑️</span>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="../img/rendu-robot-final2.png" alt="robot">
-                    <p>...</p>
-                    <div class="actions">
-                        <div class="action-button">
-                            <span>🖋️</span>
-                            <a href="#">Modifier</a>
-                        </div>
-                        <div class="action-button">
-                            <span>🗑️</span>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="../img/rendu-robot-final2.png" alt="robot">
-                    <p>...</p>
-                    <div class="actions">
-                        <div class="action-button">
-                            <span>🖋️</span>
-                            <a href="#">Modifier</a>
-                        </div>
-                        <div class="action-button">
-                            <span>🗑️</span>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
         <!-- Footer commun -->

@@ -21,7 +21,7 @@
            <input class="input" type="mdp" name="mdp"><br><br>
 
            <input id="submit" type="submit" name="update" value="Se connecter">
-           <a href="signin.php">Créer un compte</a>
+           <a href="<?= URL ?>/?action=signin">Créer un compte</a>
        </form>
 
    </body>

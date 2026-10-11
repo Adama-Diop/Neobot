@@ -67,11 +67,5 @@ function logIn()
             close_connection();
         }
     }
-    require_once PATH_ROOT . '/view/login.php'
-?>
-
- 
-<?php
+    require_once PATH_ROOT . '/view/login.php';
 }
-
-?>

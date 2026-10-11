@@ -4,7 +4,6 @@ require_once PATH_ROOT . "/models/robotModel.php";
 function setRobot()
 {
 
-
     session_start();
 
     if (!isset($_SESSION['client_id'])) {
@@ -13,19 +12,52 @@ function setRobot()
         // return;
         exit();
     }
+    $robot_existant = null;
+    $fonctionnalites_selectionnees = [];
+    if (isset($_GET['robot'])) {
+
+        $id_robot = (int) $_GET['robot'];
+        $robot_existant = get_robot_by_id($id_robot);
+
+        if (!$robot_existant) {
+            http_response_code(404);
+            exit("Robot introuvable.");
+        }
+
+        if ($robot_existant['id_client'] != $_SESSION['client_id']) {
+            http_response_code(403);
+            exit("Vous n'avez pas le droit de modifier ce robot.");
+        }
+
+        $fonctionnalites_selectionnees = get_fonctionnalites_robot(
+            (int)$robot_existant['id']
+        );
+    }
 
     $id_base = null;
     $id_head = null;
-    $id_torso = null;
+    $id_body = null;
     $id_arm = null;
     $id_leg = null;
     $nom = null;
     $description = null;
 
+    $all_bases = get_all_bases();
+    $all_heads = get_all_heads();
+    $all_arms = get_all_arms();
+    $all_bodies = get_all_bodies();
+    $all_legs = get_all_legs();
+    $all_fonctionnalites = get_all_fonctionnalites();
+
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        var_dump($_POST);
+        $fonctionnalites_post = $_POST['fonctionnalites'] ?? [];
+
+        $fonctionnalites_selectionnees = array_map(
+            'intval',
+            $_POST['fonctionnalites'] ?? []
+        );
 
         if (isset($_POST['base'])) {
             $id_base = trim(htmlspecialchars($_POST['base']));
@@ -35,8 +67,8 @@ function setRobot()
             $id_head = trim(htmlspecialchars($_POST['head']));
         }
 
-        if (isset($_POST['torso'])) {
-            $id_torso = trim(htmlspecialchars($_POST['torso']));
+        if (isset($_POST['body'])) {
+            $id_body = trim(htmlspecialchars($_POST['body']));
         }
 
         if (isset($_POST['arm'])) {
@@ -56,168 +88,105 @@ function setRobot()
         }
 
         // Vérification de la soumission du formulaire
-        if ($id_base && $id_head && $id_torso && $id_arm && $id_leg && $nom && $description) {
+        if (
+            $id_base && $id_head && $id_body &&
+            $id_arm && $id_leg && $nom
+        ) {
+            if (isset($_POST['robot_id']) && (int)$_POST['robot_id'] > 0) {
+                // Modification d'un robot existant
+                $id_robot = (int)$_POST['robot_id'];
 
-            $date_creation = date('Y-m-d H:i:s');
+                $result = update_robot(
+                    $id_robot,
+                    $nom,
+                    $id_base,
+                    $id_head,
+                    $id_body,
+                    $id_arm,
+                    $id_leg,
+                    $_SESSION['client_id'],
+                    $description
+                );
+                $id_robot_final = $id_robot;
+            } else {
+                // Création d'un nouveau robot
+                $date_creation = date('Y-m-d H:i:s');
 
-            //require_once PATH_ROOT . '/view/robotfinal.php';
-            set_robot($nom, $date_creation, $id_base, $id_head, $id_torso, $id_arm, $id_leg, $_SESSION['client_id'], $description);
+                $id_robot_final = set_robot(
+                    $nom,
+                    $date_creation,
+                    $id_base,
+                    $id_head,
+                    $id_body,
+                    $id_arm,
+                    $id_leg,
+                    $_SESSION['client_id'],
+                    $description
+                );
+                $result = ($id_robot_final !== false);
+            }
+
+            if ($result) {
+
+                // 1. Enregistrer les fonctionnalités cochées
+                $fonctionnalites_ok = enregistrer_fonctionnalites_robot(
+                    $id_robot_final,
+                    $fonctionnalites_selectionnees
+                );
+
+                if (!$fonctionnalites_ok) {
+                    echo "Erreur lors de l'enregistrement des fonctionnalités.";
+                    return;
+                }
+
+                // 2. Récupérer le robot enregistré
+                $robot_existant = get_robot_by_id($id_robot_final);
+
+                if (
+                    !$robot_existant ||
+                    (int)$robot_existant['id_client'] !== (int)$_SESSION['client_id']
+                ) {
+                    http_response_code(403);
+                    exit("Impossible d'afficher ce robot.");
+                }
+
+                // 3. Charger les pièces pour afficher leurs descriptions
+                $all_bases = get_all_bases();
+                $all_heads = get_all_heads();
+                $all_bodies = get_all_bodies();
+                $all_arms = get_all_arms();
+                $all_legs = get_all_legs();
+
+                // 4. Calculer les prix
+                $prix_pieces = get_prix_pieces_robot($id_robot_final);
+                $prix_fonctionnalites = get_prix_fonctionnalites_robot($id_robot_final);
+
+                $prix_total = 0;
+
+                if ($prix_pieces) {
+                    $prix_total =
+                        (float) $prix_pieces['prix_base']
+                        + (float) $prix_pieces['prix_tete']
+                        + (float) $prix_pieces['prix_corps']
+                        + (float) $prix_pieces['prix_bras']
+                        + (float) $prix_pieces['prix_jambes'];
+                }
+
+                $prix_total += (float) $prix_fonctionnalites;
+
+                // 5. Récupérer les fonctionnalités sélectionnées
+                $fonctionnalites_selectionnees = get_fonctionnalites_robot(
+                    (int)$robot_existant['id']
+                );
+
+                $details_fonctionnalites = get_details_fonctionnalites_robot($id_robot_final);
+
+                // 6. Afficher le récapitulatif
+                require PATH_ROOT . '/view/robotfinal.php';
+                return;
+            }
         }
     }
-
-
-    $basesRobots = [
-        [
-            "id" => "1",
-            "nom" => "Bipède",
-            "img" => "./view/img/rendu-robot-final.png",
-            "desc" => "Classique et équilibré, parfait pour toutes les aventures."
-        ],
-        [
-            "id" => "2",
-            "nom" => "Bipède",
-            "img" => "./view/img/rendu-robot-final.png",
-            "desc" => "Classique et équilibré, parfait pour toutes les aventures."
-        ],
-        [
-            "id" => "3",
-            "nom" => "Bipède",
-            "img" => "./view/img/rendu-robot-final.png",
-            "desc" => "Classique et équilibré, parfait pour toutes les aventures."
-        ]
-    ];
-
-    $robotHeads = [
-        [
-            "id" => "1",
-            "img" => "./view/img/tete-violet1.png",
-            "desc" => "Classique et souriante, avec une petite antenne."
-        ],
-        [
-            "id" => "2",
-            "img" => "./view/img/tete-violet2.png",
-            "desc" => "Dynamique avec une visière originale et expressive."
-        ],
-        [
-            "id" => "3",
-            "img" => "./view/img/tete-violet3.png",
-            "desc" => "Moderne avec deux grands yeux lumineux."
-        ],
-        [
-            "id" => "4",
-            "img" => "./view/img/tete-violet4.png",
-            "desc" => "Minimaliste avec un écran large et élégant."
-        ],
-        [
-            "id" => "5",
-            "img" => "./view/img/tete-violet5.png",
-            "desc" => "Futuriste avec une forme ronde et un œil central."
-        ],
-        [
-            "id" => "6",
-            "img" => "./view/img/tete-violet6.png",
-            "desc" => "Adorable avec des oreilles de chat."
-        ]
-    ];
-
-    $robotTorsos = [
-        [
-            "id" => "1",
-            "img" => "./view/img/torse-violet1.png",
-            "desc" => "Compact et arrondi, idéal pour un robot classique."
-        ],
-        [
-            "id" => "2",
-            "img" => "./view/img/torse-violet2.png",
-            "desc" => "Armure renforcée pour un look plus robuste."
-        ],
-        [
-            "id" => "3",
-            "img" => "./view/img/torse-violet3.png",
-            "desc" => "Corps sphérique avec un cœur lumineux central."
-        ],
-        [
-            "id" => "4",
-            "img" => "./view/img/torse-violet4.png",
-            "desc" => "Design moderne avec une large protection frontale."
-        ],
-        [
-            "id" => "5",
-            "img" => "./view/img/torse-violet5.png",
-            "desc" => "Léger et élégant avec une silhouette sportive."
-        ],
-        [
-            "id" => "6",
-            "img" => "./view/img/torse-violet6.png",
-            "desc" => "Corps renforcé avec un panneau lumineux."
-        ]
-    ];
-
-    $robotArms = [
-        [
-            "id" => "1",
-            "img" => "./view/img/bras-violet1.png",
-            "desc" => "Simple et polyvalent pour un usage quotidien."
-        ],
-        [
-            "id" => "2",
-            "img" => "./view/img/bras-violet2.png",
-            "desc" => "Bras articulé offrant une grande mobilité."
-        ],
-        [
-            "id" => "3",
-            "img" => "./view/img/bras-violet3.png",
-            "desc" => "Bras robuste conçu pour les tâches physiques."
-        ],
-        [
-            "id" => "4",
-            "img" => "./view/img/bras-violet4.png",
-            "desc" => "Bras fin et précis pour les travaux délicats."
-        ],
-        [
-            "id" => "5",
-            "img" => "./view/img/bras-violet5.png",
-            "desc" => "Main en pince pour saisir facilement les objets."
-        ],
-        [
-            "id" => "6",
-            "img" => "./view/img/bras-violet6.png",
-            "desc" => "Main articulée avec cinq doigts pour plus de précision."
-        ]
-    ];
-
-    $robotLegs = [
-        [
-            "id" => "1",
-            "img" => "./view/img/jambes-violet1.png",
-            "desc" => "Grandes jambes stables pour un robot robuste."
-        ],
-        [
-            "id" => "2",
-            "img" => "./view/img/jambes-violet2.png",
-            "desc" => "Jambes fines et classiques pour un look élégant."
-        ],
-        [
-            "id" => "3",
-            "img" => "./view/img/jambes-violet3.png",
-            "desc" => "Jambes puissantes avec des pieds larges."
-        ],
-        [
-            "id" => "4",
-            "img" => "./view/img/jambes-violet4.png",
-            "desc" => "Jambes légères et rapides pour plus d'agilité."
-        ],
-        [
-            "id" => "5",
-            "img" => "./view/img/jambes-violet5.png",
-            "desc" => "Roues intégrées pour des déplacements rapides."
-        ],
-        [
-            "id" => "6",
-            "img" => "./view/img/jambes-violet6.png",
-            "desc" => "Trois pieds articulés pour une excellente stabilité."
-        ]
-    ];
 
     require_once PATH_ROOT . "/view/creationrobot.php";
 }
