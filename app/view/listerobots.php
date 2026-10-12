@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="cta-create-robot">
-                    <a href="http://localhost/neobot/achatrobot.php">➕ Créer un robot</a>
+                    <a href="<?= URL ?>/?action=creationrobot">➕ Créer un robot</a>
                 </div>
             </div>
 

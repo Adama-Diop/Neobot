@@ -19,11 +19,11 @@
                 <a href="">Paramètres</a>
             </div>
         </nav>
-        <!-- <div class="connexion">
-                <img src="../img/avatar.png" alt="photo de profil">
-                <a href="http://localhost/neobot/logout.php">Se déconnecter</a>
-                <a href="http://localhost/neobot/achatrobot.php">Voir mes achats</a>
-            </div> -->
+        <div class="connexion">
+            <img src="../img/avatar.png" alt="photo de profil" width="70px" height="70px">
+            <a href="<?= URL ?>/?action=logout">Se déconnecter</a>
+            <a href="http://localhost/neobot/achatrobot.php">Voir mes achats</a>
+        </div>
     </div>
 </header>
 <div class="container">

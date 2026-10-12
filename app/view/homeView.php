@@ -31,6 +31,11 @@
             <div class="buttons">
                 <a href="">Se connecter</a>
                 <a href="">S'inscrire</a>
+                <?php if (($_SESSION['role'] ?? '') === 'admin'): ?>
+                    <a href="<?= htmlspecialchars(URL . '/?action=admin', ENT_QUOTES, 'UTF-8') ?>">
+                        Administration
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -41,7 +46,7 @@
                 <h1>Créez votre <span>robot</span> de A à Z</h1>
                 <p>Concevez, personnalisez et déployez votre robot avec une plateforme intuitive pensée pour les
                     créateurs, ingénieurs et rêveurs.</p>
-                <a href="">Commencez à créer</a>
+                <a href="<?= URL ?>/?action=creationrobot">Commencez à créer</a>
             </div>
             <div class="image-robot-container">
                 <img src="../img/robot-creation.png" alt="Image d'un robot">
@@ -99,7 +104,7 @@
                 <img src="../img/mascotte-volant.png" alt="logo robot">
                 <p>Rejoignez NeoBot et commencez à créer dès aujourd’hui.</p>
             </div>
-            <a href="">Commencez à créer</a>
+            <a href="<?= URL ?>/?action=creationrobot">Commencez à créer</a>
         </div>
     </main>
 

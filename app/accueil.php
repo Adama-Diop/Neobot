@@ -41,7 +41,7 @@
                 <h1>Créez votre <span>robot</span> de A à Z</h1>
                 <p>Concevez, personnalisez et déployez votre robot avec une plateforme intuitive pensée pour les
                     créateurs, ingénieurs et rêveurs.</p>
-                <a href="">Commencez à créer</a>
+                <a href="<?= URL ?>/?action=creationrobot">Commencez à créer</a>
             </div>
             <div class="image-robot-container">
                 <img src="../img/robot-creation.png" alt="Image d'un robot">

@@ -89,8 +89,12 @@ function setRobot()
 
         // Vérification de la soumission du formulaire
         if (
-            $id_base && $id_head && $id_body &&
-            $id_arm && $id_leg && $nom
+            $id_base !== null && $id_base !== '' &&
+            $id_head !== null && $id_head !== '' &&
+            $id_body !== null && $id_body !== '' &&
+            $id_arm !== null && $id_arm !== '' &&
+            $id_leg !== null && $id_leg !== '' &&
+            $nom !== null && $nom !== ''
         ) {
             if (isset($_POST['robot_id']) && (int)$_POST['robot_id'] > 0) {
                 // Modification d'un robot existant

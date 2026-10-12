@@ -26,7 +26,7 @@ function logIn()
 
             open_connection();
             // Ici le ? sert a protéger des injections SQL garce au smtmt_bnd_parameter
-            $sql = "SELECT id, pseudo, mdp FROM Clients WHERE pseudo =?";
+            $sql = "SELECT id, pseudo, mdp, role FROM Clients WHERE pseudo = ?";
             try {
                 $stmt = mysqli_prepare($GLOBALS['connection'], $sql);
                 // Si injection l'incstruction ci dessus bloque
@@ -51,10 +51,12 @@ function logIn()
 
                         $_SESSION['client_id'] = $user['id'];
                         $_SESSION['pseudo'] = $user['pseudo'];
+                        $_SESSION['role'] = $user['role'];
+
 
                         // Redirection vers la page d'accueil
                         close_connection();
-                        header('Location:' . URL . "/index.php?action=listerobots");
+                        header('Location:' . URL);
                         exit();
                     } else {
                         $error_msg =  "Mot de passe incorrect.";
