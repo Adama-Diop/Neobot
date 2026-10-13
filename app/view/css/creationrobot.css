@@ -95,6 +95,33 @@ img {
     margin: 10px 0 10px 25px;
 }
 
+
+.color-picker {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.color-picker p {
+    width: 100%;
+    margin: 0 0 5px;
+}
+
+.color-option {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.color-option.selected {
+    outline: 3px solid #333;
+    outline-offset: 3px;
+}
+
 @media screen AND (min-width:485px) {
 
     .choice {

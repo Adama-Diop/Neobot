@@ -19,7 +19,74 @@
         </h2>
         <div class="debrief-container">
             <div class="robotanddesc-container">
-                <img src="./view/img/rendu-robot-final2.png" alt="Visuel final du robot">
+                <?php
+                function trouverPieceParIdFinal($pieces, $id)
+                {
+                    foreach ($pieces as $piece) {
+                        if ((int)$piece['id'] === (int)$id) {
+                            return $piece;
+                        }
+                    }
+
+                    return null;
+                }
+
+                $teteFinale = trouverPieceParIdFinal($all_heads, $robot_existant['id_tete']);
+                $corpsFinal = trouverPieceParIdFinal($all_bodies, $robot_existant['id_corps']);
+                $brasFinal = trouverPieceParIdFinal($all_arms, $robot_existant['id_bras']);
+                $jambesFinales = trouverPieceParIdFinal($all_legs, $robot_existant['id_jambes']);
+
+                $couleurTete = $robot_existant['couleur_tete'] ?? 'bleu';
+                $couleurCorps = $robot_existant['couleur_corps'] ?? 'bleu';
+                $couleurBras = $robot_existant['couleur_bras'] ?? 'bleu';
+                $couleurJambes = $robot_existant['couleur_jambes'] ?? 'bleu';
+
+                $cheminTete = $teteFinale
+                    ? 'view/img/tete/' . $teteFinale['ref'] . '-' . $couleurTete . '.png'
+                    : '';
+
+                $cheminCorps = $corpsFinal
+                    ? 'view/img/corps/' . $corpsFinal['ref'] . '-' . $couleurCorps . '.png'
+                    : '';
+
+                $cheminBras = $brasFinal
+                    ? 'view/img/bras/' . $brasFinal['ref'] . '-' . $couleurBras . '.png'
+                    : '';
+
+                $cheminJambes = $jambesFinales
+                    ? 'view/img/jambes/' . $jambesFinales['ref'] . '-' . $couleurJambes . '.png'
+                    : '';
+                ?>
+
+                <div class="robot-assemble">
+                    <?php if ($cheminJambes !== ''): ?>
+                        <img class="piece-robot jambes"
+                            src="<?= htmlspecialchars(URL . '/' . $cheminJambes, ENT_QUOTES, 'UTF-8') ?>"
+                            alt="Jambes du robot">
+                    <?php endif; ?>
+
+                    <?php if ($cheminBras !== ''): ?>
+                        <img class="piece-robot bras bras-gauche"
+                            src="<?= htmlspecialchars(URL . '/' . $cheminBras, ENT_QUOTES, 'UTF-8') ?>"
+                            alt="Bras gauche du robot">
+
+                        <img class="piece-robot bras bras-droit"
+                            src="<?= htmlspecialchars(URL . '/' . $cheminBras, ENT_QUOTES, 'UTF-8') ?>"
+                            alt="Bras droit du robot">
+                    <?php endif; ?>
+
+                    <?php if ($cheminCorps !== ''): ?>
+                        <img class="piece-robot corps"
+                            src="<?= htmlspecialchars(URL . '/' . $cheminCorps, ENT_QUOTES, 'UTF-8') ?>"
+                            alt="Corps du robot">
+                    <?php endif; ?>
+
+                    <?php if ($cheminTete !== ''): ?>
+                        <img class="piece-robot tete"
+                            src="<?= htmlspecialchars(URL . '/' . $cheminTete, ENT_QUOTES, 'UTF-8') ?>"
+                            alt="Tête du robot">
+                    <?php endif; ?>
+                </div>
                 <section class="debrief">
                     <h3>Récapitulatif de votre création</h3>
 

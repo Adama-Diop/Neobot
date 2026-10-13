@@ -20,7 +20,7 @@
         <input type="email" name="email" placeholder="exemple@gmail.com" required value="<?= $email ?>"><br><br>
 
         <label>Mot de passe</label>
-        <input type="mdp" name="mdp" required><br><br>
+        <input type="password" name="mdp" required><br><br>
 
         <input id="submit" type="submit" name="update" value="S'inscrire">
         <a href=<?= URL ?>"?action=login">J'ai déjà un compte</a>

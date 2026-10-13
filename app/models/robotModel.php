@@ -2,15 +2,49 @@
 require_once PATH_ROOT . '/models/sql_connection.php';
 
 
-function set_robot($nom, $date_creation, $id_base, $id_tete, $id_corps, $id_bras, $id_jambes, $id_client, $description)
-{
-
+function set_robot(
+    $nom,
+    $date_creation,
+    $id_base,
+    $id_tete,
+    $id_corps,
+    $id_bras,
+    $id_jambes,
+    $id_client,
+    $description,
+    $couleur_tete,
+    $couleur_corps,
+    $couleur_bras,
+    $couleur_jambes
+) {
     open_connection();
 
-    $sql = "INSERT INTO Robots (nom, date_creation, id_base, id_tete, id_corps, id_bras, id_jambes, id_client, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Robots (
+                nom, date_creation,
+                id_base, id_tete, id_corps, id_bras, id_jambes,
+                id_client, description,
+                couleur_tete, couleur_corps, couleur_bras, couleur_jambes
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
     $stmt = mysqli_prepare($GLOBALS['connection'], $sql);
 
-    mysqli_stmt_bind_param($stmt, "ssiiiiiis", $nom, $date_creation, $id_base, $id_tete, $id_corps, $id_bras, $id_jambes, $id_client, $description);
+    mysqli_stmt_bind_param(
+        $stmt,
+        "ssiiiiiisssss",
+        $nom,
+        $date_creation,
+        $id_base,
+        $id_tete,
+        $id_corps,
+        $id_bras,
+        $id_jambes,
+        $id_client,
+        $description,
+        $couleur_tete,
+        $couleur_corps,
+        $couleur_bras,
+        $couleur_jambes
+    );
 
     $result = mysqli_stmt_execute($stmt);
 
@@ -56,7 +90,11 @@ function update_robot(
     $id_bras,
     $id_jambes,
     $id_client,
-    $description
+    $description,
+    $couleur_tete,
+    $couleur_corps,
+    $couleur_bras,
+    $couleur_jambes
 ) {
     open_connection();
 
@@ -67,14 +105,18 @@ function update_robot(
                 id_corps = ?,
                 id_bras = ?,
                 id_jambes = ?,
-                description = ?
+                description = ?,
+                couleur_tete = ?,
+                couleur_corps = ?,
+                couleur_bras = ?,
+                couleur_jambes = ?
             WHERE id = ? AND id_client = ?";
 
     $stmt = mysqli_prepare($GLOBALS['connection'], $sql);
 
     mysqli_stmt_bind_param(
         $stmt,
-        "siiiiisii",
+        "siiiiisssssii",
         $nom,
         $id_base,
         $id_tete,
@@ -82,6 +124,10 @@ function update_robot(
         $id_bras,
         $id_jambes,
         $description,
+        $couleur_tete,
+        $couleur_corps,
+        $couleur_bras,
+        $couleur_jambes,
         $id_robot,
         $id_client
     );

@@ -108,7 +108,7 @@ hr {
     margin: 40px 0;
 }
 
-.debrief-container img {
+.debrief-container>.robotanddesc-container>img {
     height: 200px;
     display: block;
     margin: 0 auto;
@@ -379,13 +379,81 @@ hr {
 
     }
 
-    .debrief-container img {
+    /* .debrief-container img {
         height: 300px;
         background-color: #c398e079;
         padding: 15px 0;
         border-radius: 20px;
         border: 2px solid #c398e0;
-    }
+    } */
 }
 
 /* ############################################################################################################################################################################### */
+
+.robot-assemble {
+    position: relative;
+    width: 100%;
+    max-width: 190px;
+    aspect-ratio: 420 / 460;
+    margin: 0 auto;
+}
+
+/* Toutes les pièces */
+.robot-assemble .piece-robot {
+    position: absolute;
+    display: block;
+    height: auto;
+    max-width: none;
+    margin: 0;
+    object-fit: contain;
+}
+
+/* Jambes */
+.robot-assemble .jambes {
+    width: 66%;
+    left: 17%;
+    top: 70%;
+    z-index: 1;
+}
+
+/* Bras */
+.robot-assemble .bras {
+    width: 30%;
+}
+
+.robot-assemble .bras-gauche {
+    left: 8%;
+    transform: none;
+    top: 51%;
+    z-index: 4;
+}
+
+.robot-assemble .bras-droit {
+    right: 6%;
+    transform: scaleX(-1);
+    top: 49%;
+    z-index: 2;
+}
+
+/* Corps */
+.robot-assemble .corps {
+    width: 50%;
+    left: 25%;
+    top: 39%;
+    z-index: 3;
+}
+
+/* Tête */
+.robot-assemble .tete {
+    width: 46%;
+    left: 27%;
+    top: 2%;
+    z-index: 5;
+}
+
+.robot-assemble img.piece-robot {
+    height: auto !important;
+    max-width: none;
+    margin: 0;
+    object-fit: contain;
+}

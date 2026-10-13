@@ -69,6 +69,18 @@
         <main class="main-container">
             <form action="" method="post">
 
+                <input type="hidden" name="couleur_tete" id="couleur_tete"
+                    value="<?= htmlspecialchars($robot_existant['couleur_tete'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
+
+                <input type="hidden" name="couleur_corps" id="couleur_corps"
+                    value="<?= htmlspecialchars($robot_existant['couleur_corps'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
+
+                <input type="hidden" name="couleur_bras" id="couleur_bras"
+                    value="<?= htmlspecialchars($robot_existant['couleur_bras'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
+
+                <input type="hidden" name="couleur_jambes" id="couleur_jambes"
+                    value="<?= htmlspecialchars($robot_existant['couleur_jambes'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
+
                 <?php if (!empty($robot_existant)): ?>
                     <input
                         type="hidden"
@@ -112,31 +124,56 @@
                     <h2>Personnalisez la tête</h2>
                     <h3>Choisissez la forme et les yeux de votre robot</h3>
                     <div class="step-container">
-                        <!-- <div class="tabs">
-                            <p>Tête</p>
-                            <p>Yeux</p>
-                        </div> -->
+
+                        <h4>Couleur de la tête</h4>
+                        <div class="color-picker" data-category="head">
+
+                            <button type="button" class="color-option selected"
+                                data-color="bleu" style="background-color: #2563EB"
+                                aria-label="Bleu" title="Bleu"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="jaune" style="background-color: #FACC15"
+                                aria-label="Jaune" title="Jaune"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rose" style="background-color: #EC4899"
+                                aria-label="Rose" title="Rose"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rouge" style="background-color: #F54927"
+                                aria-label="Rouge" title="Rouge"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="vert" style="background-color: #16A34A"
+                                aria-label="Vert" title="Vert"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="violet" style="background-color: #7B2CBF"
+                                aria-label="Violet" title="Violet"></button>
+                        </div>
 
                         <div class="head choice">
                             <?php foreach ($all_heads as $head): ?>
-                                <label for="">
+                                <label>
                                     <input
                                         type="radio"
                                         name="head"
-                                        value="<?= $head['id'] ?>"
+                                        value="<?= (int)$head['id'] ?>"
+                                        data-ref="<?= htmlspecialchars($head['ref'], ENT_QUOTES, 'UTF-8') ?>"
                                         <?= isset($robot_existant) && $robot_existant
                                             && (int)$robot_existant['id_tete'] === (int)$head['id']
                                             ? 'checked' : '' ?>>
-                                    <img src=<?= $head["img"] ?> alt="photos pièces détachées tête 1" class="corpse-img">
-                                    <p><?= $head["description"] ?></p>
+
+                                    <img
+                                        src="<?= htmlspecialchars($head['img'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                                        alt="<?= htmlspecialchars($head['ref'], ENT_QUOTES, 'UTF-8') ?>"
+                                        class="corpse-img">
+
+                                    <p><?= htmlspecialchars($head['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
-
-                        <!-- METTRE LES OPTIONS YEUX -->
-
-                        <h4>Couleur de la tête</h4>
-                        <!-- METTRE ZONE DE COULEURS ICI -->
                     </div>
                 </div>
 
@@ -145,34 +182,56 @@
                     <h2>Personnalisez le corps</h2>
                     <h3>Choisissez la forme du torse, les détails et les éléments techniques.</h3>
                     <div class="step-container">
-                        <!-- <div class="tabs">
-                            <p>Forme</p>
-                            <p>Détails</p>
-                            <p>Energie</p>
-                        </div> -->
+
+                        <h4>Couleur du corps</h4>
+                        <div class="color-picker" data-category="body">
+
+                            <button type="button" class="color-option selected"
+                                data-color="bleu" style="background-color: #2563EB"
+                                aria-label="Bleu" title="Bleu"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="jaune" style="background-color: #FACC15"
+                                aria-label="Jaune" title="Jaune"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rose" style="background-color: #EC4899"
+                                aria-label="Rose" title="Rose"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rouge" style="background-color: #F54927"
+                                aria-label="Rouge" title="Rouge"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="vert" style="background-color: #16A34A"
+                                aria-label="Vert" title="Vert"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="violet" style="background-color: #7B2CBF"
+                                aria-label="Violet" title="Violet"></button>
+                        </div>
 
                         <div class="body choice">
                             <?php foreach ($all_bodies as $body): ?>
-                                <label for="">
+                                <label>
                                     <input
                                         type="radio"
                                         name="body"
-                                        value="<?= $body['id'] ?>"
+                                        value="<?= (int)$body['id'] ?>"
+                                        data-ref="<?= htmlspecialchars($body['ref'], ENT_QUOTES, 'UTF-8') ?>"
                                         <?= isset($robot_existant) && $robot_existant
                                             && (int)$robot_existant['id_corps'] === (int)$body['id']
                                             ? 'checked' : '' ?>>
-                                    <img src=<?= $body["img"] ?> alt="photos pièces détachées torse" class="corpse-img">
-                                    <p><?= $body["description"] ?></p>
+
+                                    <img
+                                        src="<?= htmlspecialchars($body['img'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                                        alt="<?= htmlspecialchars($body['ref'], ENT_QUOTES, 'UTF-8') ?>"
+                                        class="corpse-img">
+
+                                    <p><?= htmlspecialchars($body['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
-
-                        <!-- METTRE LES OPTIONS DETAILS
-                        METTRE LES OPTIONS ENERGIE -->
-
-
-                        <h4>Couleur de la tête</h4>
-                        <!-- METTRE ZONE DE COULEURS ICI -->
                     </div>
                 </div>
 
@@ -181,31 +240,56 @@
                     <h2>Personnalisez les bras</h2>
                     <h3>Choisissez le style et les outils pour les bras de votre robot</h3>
                     <div class="step-container">
-                        <!-- <div class="tabs">
-                            <p>Bras</p>
-                            <p>Outils</p>
-                        </div> -->
+
+                        <h4>Couleur des bras</h4>
+                        <div class="color-picker" data-category="arm">
+
+                            <button type="button" class="color-option selected"
+                                data-color="bleu" style="background-color: #2563EB"
+                                aria-label="Bleu" title="Bleu"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="jaune" style="background-color: #FACC15"
+                                aria-label="Jaune" title="Jaune"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rose" style="background-color: #EC4899"
+                                aria-label="Rose" title="Rose"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rouge" style="background-color: #F54927"
+                                aria-label="Rouge" title="Rouge"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="vert" style="background-color: #16A34A"
+                                aria-label="Vert" title="Vert"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="violet" style="background-color: #7B2CBF"
+                                aria-label="Violet" title="Violet"></button>
+                        </div>
 
                         <div class="arm choice">
                             <?php foreach ($all_arms as $arm): ?>
-                                <label for="">
+                                <label>
                                     <input
                                         type="radio"
                                         name="arm"
-                                        value="<?= $arm['id'] ?>"
+                                        value="<?= (int)$arm['id'] ?>"
+                                        data-ref="<?= htmlspecialchars($arm['ref'], ENT_QUOTES, 'UTF-8') ?>"
                                         <?= isset($robot_existant) && $robot_existant
                                             && (int)$robot_existant['id_bras'] === (int)$arm['id']
                                             ? 'checked' : '' ?>>
-                                    <img src=<?= $arm["img"] ?> alt="photos pièces détachées bras" class="corpse-img">
-                                    <p><?= $arm["description"] ?></p>
+
+                                    <img
+                                        src="<?= htmlspecialchars($arm['img'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                                        alt="<?= htmlspecialchars($arm['ref'], ENT_QUOTES, 'UTF-8') ?>"
+                                        class="corpse-img">
+
+                                    <p><?= htmlspecialchars($arm['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
-
-                        <!-- METTRE LES OPTIONS D'OUTILLAGES -->
-
-                        <h4>Couleur des bras</h4>
-                        <!-- METTRE ZONE DE COULEURS ICI -->
                     </div>
                 </div>
 
@@ -215,24 +299,55 @@
                     <h3>Choisissez le style de jambes adapté votre robot</h3>
                     <div class="step-container">
 
+                        <h4>Couleur des jambes</h4>
+                        <div class="leg-colors color-picker" data-category="leg">
+
+                            <button type="button" class="color-option selected"
+                                data-color="bleu" style="background-color: #2563EB"
+                                aria-label="Bleu" title="Bleu"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="jaune" style="background-color: #FACC15"
+                                aria-label="Jaune" title="Jaune"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rose" style="background-color: #EC4899"
+                                aria-label="Rose" title="Rose"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="rouge" style="background-color: #F54927"
+                                aria-label="Rouge" title="Rouge"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="vert" style="background-color: #16A34A"
+                                aria-label="Vert" title="Vert"></button>
+
+                            <button type="button" class="color-option"
+                                data-color="violet" style="background-color: #7B2CBF"
+                                aria-label="Violet" title="Violet"></button>
+                        </div>
+
                         <div class="leg choice">
                             <?php foreach ($all_legs as $leg): ?>
-                                <label for="">
+                                <label>
                                     <input
                                         type="radio"
                                         name="leg"
-                                        value="<?= $leg['id'] ?>"
+                                        value="<?= (int)$leg['id'] ?>"
+                                        data-ref="<?= htmlspecialchars($leg['ref'], ENT_QUOTES, 'UTF-8') ?>"
                                         <?= isset($robot_existant) && $robot_existant
                                             && (int)$robot_existant['id_jambes'] === (int)$leg['id']
                                             ? 'checked' : '' ?>>
-                                    <img src=<?= $leg["img"] ?> alt="photos pièces détachées jambes" class="corpse-img">
-                                    <p><?= $leg["description"] ?></p>
+
+                                    <img
+                                        src="<?= htmlspecialchars($leg['img'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                                        alt="<?= htmlspecialchars($leg['ref'], ENT_QUOTES, 'UTF-8') ?>"
+                                        class="corpse-img">
+
+                                    <p><?= htmlspecialchars($leg['description'], ENT_QUOTES, 'UTF-8') ?></p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
-
-                        <h4>Couleur des jambes</h4>
-                        <!-- METTRE ZONE DE COULEURS ICI -->
                     </div>
                 </div>
 
@@ -241,14 +356,6 @@
                     <h2>Ajoutez des détails</h2>
                     <h3>Personnalisez les capacités et fonctionnalités de votre robot.</h3>
                     <div class="step-container">
-                        <div class="tabs">
-                            <p>Audio</p>
-                            <p>Vision</p>
-                            <p>Capteurs</p>
-                        </div>
-
-                        <!-- METTRE DETAILS AUDIO
-                        METTRE DETAILS VISON -->
 
                         <div class="details choice">
 
@@ -321,6 +428,7 @@
             </form>
         </main>
     </div>
+    <script src="view/js/couleurs.js"></script>
     <!-- Footer commun -->
     <?= require_once PATH_ROOT . "/view/templates/footer.php" ?>
     <!-- FIn de footer -->

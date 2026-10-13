@@ -48,9 +48,40 @@ function setRobot()
     $all_bodies = get_all_bodies();
     $all_legs = get_all_legs();
     $all_fonctionnalites = get_all_fonctionnalites();
+    $couleur_tete = 'bleu';
+    $couleur_corps = 'bleu';
+    $couleur_bras = 'bleu';
+    $couleur_jambes = 'bleu';
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $couleurs_autorisees = [
+            'bleu',
+            'jaune',
+            'rose',
+            'rouge',
+            'vert',
+            'violet'
+        ];
+
+        $couleur_tete = $_POST['couleur_tete'] ?? 'bleu';
+        $couleur_corps = $_POST['couleur_corps'] ?? 'bleu';
+        $couleur_bras = $_POST['couleur_bras'] ?? 'bleu';
+        $couleur_jambes = $_POST['couleur_jambes'] ?? 'bleu';
+
+        foreach (
+            [
+                &$couleur_tete,
+                &$couleur_corps,
+                &$couleur_bras,
+                &$couleur_jambes
+            ] as &$couleur
+        ) {
+            if (!in_array($couleur, $couleurs_autorisees, true)) {
+                $couleur = 'bleu';
+            }
+        }
+        unset($couleur);
 
         $fonctionnalites_post = $_POST['fonctionnalites'] ?? [];
 
@@ -109,7 +140,11 @@ function setRobot()
                     $id_arm,
                     $id_leg,
                     $_SESSION['client_id'],
-                    $description
+                    $description,
+                    $couleur_tete,
+                    $couleur_corps,
+                    $couleur_bras,
+                    $couleur_jambes
                 );
                 $id_robot_final = $id_robot;
             } else {
@@ -125,7 +160,11 @@ function setRobot()
                     $id_arm,
                     $id_leg,
                     $_SESSION['client_id'],
-                    $description
+                    $description,
+                    $couleur_tete,
+                    $couleur_corps,
+                    $couleur_bras,
+                    $couleur_jambes
                 );
                 $result = ($id_robot_final !== false);
             }

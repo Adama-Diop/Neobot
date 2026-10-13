@@ -18,7 +18,7 @@
            <input class="input" type="text" name="pseudo" value="<?= $username ?>"><br><br>
 
            <label>Mot de passe</label>
-           <input class="input" type="mdp" name="mdp"><br><br>
+           <input class="input" type="password" name="mdp"><br><br>
 
            <input id="submit" type="submit" name="update" value="Se connecter">
            <a href="<?= URL ?>/?action=signin">Créer un compte</a>
