@@ -185,9 +185,9 @@ function setRobot()
 
                 $details_fonctionnalites = get_details_fonctionnalites_robot($id_robot_final);
 
-                // 6. Afficher le récapitulatif
-                require PATH_ROOT . '/view/robotfinal.php';
-                return;
+                // Rediriger vers la page finale après l'enregistrement
+                header('Location: ' . URL . '/?action=robotfinal&id=' . (int)$id_robot_final);
+                exit();
             }
         }
     }

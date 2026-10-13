@@ -6,6 +6,7 @@
     <!-- Head Spécifique -->
     <title>@@ liste NeoBot</title>
     <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/listerobots.css">
+    <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/navbar.css">
 
     <!-- FIn de spécifique -->
 

@@ -12,6 +12,7 @@ require_once PATH_ROOT . '/controllers/home.php';
 require_once PATH_ROOT . '/controllers/404.php';
 require_once PATH_ROOT . '/controllers/logout.php';
 require_once PATH_ROOT . '/controllers/creationrobot.php';
+require_once PATH_ROOT . '/controllers/robotfinal.php';
 require_once PATH_ROOT . '/controllers/listerobots.php';
 require_once PATH_ROOT . '/controllers/supprimerrobot.php';
 require_once PATH_ROOT . '/controllers/adminClients.php';
@@ -43,6 +44,8 @@ if ($action === 'home') {
     adminClientsAction();
 } else if ($action === "adminrobots") {
     adminRobotsAction();
+} else if ($action === "robotfinal") {
+    robotFinalAction();
 } else {
     p404Action();
 }

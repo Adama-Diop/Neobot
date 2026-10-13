@@ -56,13 +56,19 @@
 
 /* CSS d'habillage */
 
-.navbar-links,
+.links,
 .buttons {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding-left: 9px;
     gap: 30px;
+    height: 70%;
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 70%;
 }
 

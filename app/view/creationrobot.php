@@ -5,6 +5,7 @@
 <!-- FIn de head -->
 
 <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/creationrobot.css">
+<link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/navbar.css">
 
 <!-- Head Spécifique -->
 <link rel='stylesheet'
