@@ -9,15 +9,15 @@
             <div class="links">
                 <div class="link">
                     <i class="fi fi-bs-home"></i>
-                    <a href="">Accueil</a>
+                    <a href="<?= URL ?>/?action=home">Accueil</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-user-robot"></i>
-                    <a href="">Mes robots</a>
+                    <a href="<?= URL ?>/?action=listerobots">Mes robots</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-website-design"></i>
-                    <a href="">Créer un robot</a>
+                    <a href="<?= URL ?>/?action=creationrobot">Créer un robot</a>
                 </div>
             </div>
             <div class="connexion">

@@ -35,31 +35,31 @@
             <nav class="navbar-links">
                 <div class="link">
                     <i class="fi fi-bs-home"></i>
-                    <a href="">1. Base</a>
+                    <a href="#base">1. Base</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-bulb"></i>
-                    <a href="">2. tête</a>
+                    <a href="#head">2. tête</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-settings"></i>
-                    <a href="">3. Corps</a>
+                    <a href="#body">3. Corps</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-settings"></i>
-                    <a href="">4. Bras</a>
+                    <a href="#arm">4. Bras</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-settings"></i>
-                    <a href="">5. Jambes</a>
+                    <a href="#leg">5. Jambes</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-settings"></i>
-                    <a href="">6. Détails</a>
+                    <a href="#details">6. Détails</a>
                 </div>
                 <div class="link">
                     <i class="fi fi-rr-settings"></i>
-                    <a href="">7. Identité</a>
+                    <a href="#identity">7. Identité</a>
                 </div>
             </nav>
         </div>
@@ -89,7 +89,7 @@
                 <?php endif; ?>
 
                 <div class="step 1">
-                    <p class="progression">Etape 1 sur 7</p>
+                    <p class="progression" id="base">Etape 1 sur 7</p>
                     <h2>Choisissez votre base</h2>
                     <h3>Sélectionnez le type de base qui définira la silhouette et les capacités de votre robot</h3>
                     <div class="cards-container">
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="step 2">
-                    <p class="progression">Etape 2 sur 7</p>
+                    <p class="progression" id="head">Etape 2 sur 7</p>
                     <h2>Personnalisez la tête</h2>
                     <h3>Choisissez la forme et les yeux de votre robot</h3>
                     <div class="step-container">
@@ -178,7 +178,7 @@
                 </div>
 
                 <div class="step 3">
-                    <p class="progression">Etape 3 sur 7</p>
+                    <p class="progression" id="body">Etape 3 sur 7</p>
                     <h2>Personnalisez le corps</h2>
                     <h3>Choisissez la forme du torse, les détails et les éléments techniques.</h3>
                     <div class="step-container">
@@ -236,7 +236,7 @@
                 </div>
 
                 <div class="step 4">
-                    <p class="progression">Etape 4 sur 7</p>
+                    <p class="progression" id="arm">Etape 4 sur 7</p>
                     <h2>Personnalisez les bras</h2>
                     <h3>Choisissez le style et les outils pour les bras de votre robot</h3>
                     <div class="step-container">
@@ -294,7 +294,7 @@
                 </div>
 
                 <div class="step 5">
-                    <p class="progression">Etape 5 sur 7</p>
+                    <p class="progression" id="leg">Etape 5 sur 7</p>
                     <h2>Personnalisez les jambes</h2>
                     <h3>Choisissez le style de jambes adapté votre robot</h3>
                     <div class="step-container">
@@ -352,7 +352,7 @@
                 </div>
 
                 <div class="step 6">
-                    <p class="progression">Etape 6 sur 7</p>
+                    <p class="progression" id="details">Etape 6 sur 7</p>
                     <h2>Ajoutez des détails</h2>
                     <h3>Personnalisez les capacités et fonctionnalités de votre robot.</h3>
                     <div class="step-container">
@@ -398,7 +398,7 @@
                 </div>
 
                 <div class="step 7">
-                    <p class="progression">Etape 7 sur 7</p>
+                    <p class="progression" id="identity">Etape 7 sur 7</p>
                     <h2>Donnez un nom à votre robot</h2>
                     <h3>C'est la dernière étape ! Donnez-lui un nom et une description.</h3>
 
