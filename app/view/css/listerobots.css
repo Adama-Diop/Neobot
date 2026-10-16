@@ -41,37 +41,7 @@ p {
     padding: 8px 16px;
 }
 
-.robots-container .etat-robots {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-    text-align: center;
-    max-width: 350px;
-    margin: 40px 0;
-}
 
-.etat-robots .etat {
-    padding: 2px 15px;
-    border-radius: 50px;
-    font-size: 0.9em;
-}
-
-.etat-robots .etat.b {
-    background-color: rgb(241, 192, 255);
-    border: 2px solid rgb(161, 26, 161);
-}
-
-.etat-robots .etat.p {
-    background-color: rgb(255, 178, 150);
-    border: 2px solid orangered;
-}
-
-.etat-robots .etat.f {
-    background-color: rgb(217, 253, 206);
-    border: 2px solid green;
-}
 
 .robots-container .liste-robots {
     display: flex;
@@ -116,11 +86,6 @@ p {
 }
 
 @media screen AND (min-width:419px) {
-
-    .robots-container .etat-robots {
-        flex-direction: row;
-        gap: 0;
-    }
 
     .card .actions {
         min-width: 80%;
@@ -199,35 +164,6 @@ p {
         color: white;
         border-radius: 5px;
         padding: 10px 23px;
-    }
-
-    .robots-container .etat-robots {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 350px;
-    }
-
-    .etat-robots .etat {
-        margin-top: 30px;
-        padding: 8px 15px;
-        border-radius: 50px;
-        font-size: 0.9em;
-    }
-
-    .etat-robots .etat.b {
-        background-color: rgb(241, 192, 255);
-        border: 2px solid rgb(161, 26, 161);
-    }
-
-    .etat-robots .etat.p {
-        background-color: rgb(255, 178, 150);
-        border: 2px solid orangered;
-    }
-
-    .etat-robots .etat.f {
-        background-color: rgb(217, 253, 206);
-        border: 2px solid green;
     }
 
     .robots-container .liste-robots {

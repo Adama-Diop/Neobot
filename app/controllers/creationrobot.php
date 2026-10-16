@@ -90,6 +90,8 @@ function setRobot()
             $_POST['fonctionnalites'] ?? []
         );
 
+        $erreur = '';
+
         if (isset($_POST['base'])) {
             $id_base = trim(htmlspecialchars($_POST['base']));
         }
@@ -149,7 +151,7 @@ function setRobot()
                 $id_robot_final = $id_robot;
             } else {
                 // Création d'un nouveau robot
-                $date_creation = date('Y-m-d H:i:s');
+                $date_creation = date('Y-m-d');
 
                 $id_robot_final = set_robot(
                     $nom,
@@ -227,9 +229,12 @@ function setRobot()
                 // Rediriger vers la page finale après l'enregistrement
                 header('Location: ' . URL . '/?action=robotfinal&id=' . (int)$id_robot_final);
                 exit();
+            } else {
+                $erreur = "L'enregistrement du robot a échoué. Veuillez réessayer.";
             }
+        } else {
+            $erreur = 'Veuillez sélectionner toutes les pièces et donner un nom à votre robot.';
         }
     }
-
     require_once PATH_ROOT . "/view/creationrobot.php";
 }

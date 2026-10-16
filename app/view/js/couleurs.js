@@ -1,4 +1,6 @@
 
+// Objet avec les principales informations et avec 3 propriétés chacunes
+
 const configurationsCouleurs = {
     leg: {
         selecteur: '.leg.choice input[name="leg"]',
@@ -22,33 +24,39 @@ const configurationsCouleurs = {
     }
 };
 
+// Récupère la liste des noms de mon objet
 Object.keys(configurationsCouleurs).forEach(function (categorie) {
+    // Je range la categorie en cours dans la variable configuration
     const configuration = configurationsCouleurs[categorie];
 
+    // Je sélectionne tous les éléments colorpicker
     document.querySelectorAll(
         '.color-picker[data-category="' + categorie + '"] .color-option'
     ).forEach(function (button) {
+        // écouteur d'évènement qui change la valeur de l'attribut data selon ce que l'utilisateur a choisi
         button.addEventListener('click', function () {
             const couleur = this.dataset.color;
 
-            // Mettre à jour les images de cette catégorie
+            // Mettre à jour les images de cette catégorie grâce au sélécteur
             document.querySelectorAll(configuration.selecteur)
                 .forEach(function (radio) {
+                    // je récupère image et réf s'il y a
                     const label = radio.closest('label');
                     const image = label ? label.querySelector('img') : null;
                     const ref = radio.dataset.ref;
 
+                    // si j'ai image + ref -> je change le chemin du dossier
                     if (image && ref) {
                         image.src = configuration.dossier
                             + ref + '-' + couleur + '.png';
                     }
                 });
 
-            // Enregistrer la couleur dans le champ caché du formulaire
+            // Enregistrer la couleur dans le champ caché du formulaire grâce à l'id
             const champCouleur = document.getElementById(
                 configuration.champ
             );
-
+            // si champ trouvé, remplace la valeur par la couleur sélectionné par l'utilisateur
             if (champCouleur) {
                 champCouleur.value = couleur;
             }

@@ -1,5 +1,6 @@
     <!-- Head générique -->
-    <?= require_once PATH_ROOT . "/view/templates/head.php" ?>
+    <?php require_once PATH_ROOT . "/view/templates/head.php" ?>
+
     <!-- FIn de head -->
 
 
@@ -14,7 +15,8 @@
 
     <body>
         <!-- Nav BAR Logged in -->
-        <?= require_once PATH_ROOT . "/view/templates/header.php" ?>
+
+        <?php require_once PATH_ROOT . "/view/templates/header.php" ?>
         <!-- FIn de NAv BAR -->
 
 
@@ -32,11 +34,6 @@
                 </div>
             </div>
 
-            <div class="etat-robots">
-                <p class="etat b">Brouillon</p>
-                <p class="etat p">En production</p>
-                <p class="etat f">Finalisée</p>
-            </div>
             <div class="liste-robots">
 
                 <!-- Debut de loop for -->
@@ -49,6 +46,16 @@
                         <em><?= htmlspecialchars($robot['date_creation'], ENT_QUOTES, 'UTF-8') ?></em>
 
                         <div class="actions">
+                            <div class="action-button">
+                                <span>👁️</span>
+                                <a href="<?= htmlspecialchars(
+                                                URL . '/?action=robotfinal&id=' . (int)$robot['id'],
+                                                ENT_QUOTES,
+                                                'UTF-8'
+                                            ) ?>">
+                                    Voir le récapitulatif
+                                </a>
+                            </div>
 
                             <!-- Bouton Modifier -->
                             <div class="action-button">
@@ -83,7 +90,7 @@
             </div>
         </section>
         <!-- Footer commun -->
-        <?= require_once PATH_ROOT . "/view/templates/footer.php" ?>
+        <?php require_once PATH_ROOT . "/view/templates/footer.php" ?>
         <!-- FIn de footer -->
 
         <!-- ICI mes scripts spécifiques a la vue -->

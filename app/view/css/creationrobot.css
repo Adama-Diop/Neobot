@@ -122,6 +122,15 @@ img {
     outline-offset: 3px;
 }
 
+.message-erreur {
+    margin: 15px 0;
+    padding: 12px 16px;
+    color: #991b1b;
+    background-color: #fee2e2;
+    border: 1px solid #fca5a5;
+    border-radius: 6px;
+}
+
 @media screen AND (min-width:485px) {
 
     .choice {

@@ -39,7 +39,6 @@ function logIn()
             }
 
             if (isset($result)) {
-
                 if (mysqli_num_rows($result) == 1) {
                     // Ici ûser contient le resiultat de la requete affiné
                     $user = mysqli_fetch_assoc($result);
@@ -53,7 +52,6 @@ function logIn()
                         $_SESSION['pseudo'] = $user['pseudo'];
                         $_SESSION['role'] = $user['role'];
 
-
                         // Redirection vers la page d'accueil
                         close_connection();
                         header('Location:' . URL);
@@ -65,7 +63,6 @@ function logIn()
                     $error_msg =  "Compte inconnu.";
                 }
             }
-
             close_connection();
         }
     }

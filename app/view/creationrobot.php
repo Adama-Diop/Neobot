@@ -69,6 +69,12 @@
         <main class="main-container">
             <form action="" method="post">
 
+                <?php if (!empty($erreur)): ?>
+                    <div class="message-erreur" role="alert">
+                        <?= htmlspecialchars($erreur, ENT_QUOTES, 'UTF-8') ?>
+                    </div>
+                <?php endif; ?>
+
                 <input type="hidden" name="couleur_tete" id="couleur_tete"
                     value="<?= htmlspecialchars($robot_existant['couleur_tete'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
 
@@ -415,7 +421,7 @@
 
                         <div class="robot-description">
                             <label for="">description</label>
-                            <textarea name="description"><?= htmlspecialchars($robot_existan['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></textarea>
+                            <textarea name="description"><?= htmlspecialchars($robot_existant['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></textarea>
                         </div>
                     </div>
                 </div>
