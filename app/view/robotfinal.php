@@ -1,5 +1,5 @@
     <!-- Head générique -->
-    <?= require_once PATH_ROOT . "/view/templates/head.php" ?>
+    <?php require_once PATH_ROOT . "/view/templates/head.php" ?>
     <!-- FIn de head -->
 
     <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/robotfinal.css">
@@ -9,7 +9,7 @@
 
     <body>
         <!-- Nav BAR Logged in -->
-        <?= require_once PATH_ROOT . "/view/templates/header.php" ?>
+        <?php require_once PATH_ROOT . "/view/templates/header.php" ?>
         <!-- FIn de NAv BAR -->
         <h2>
             Voici la version finale de
@@ -207,7 +207,7 @@
             </section>
         </section>
         <!-- Footer commun -->
-        <?= require_once PATH_ROOT . "/view/templates/footer.php" ?>
+        <?php require_once PATH_ROOT . "/view/templates/footer.php" ?>
         <!-- FIn de footer -->
     </body>
 

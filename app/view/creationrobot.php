@@ -1,7 +1,7 @@
 <title>@@Création de votre robot</title>
 
 <!-- Head générique -->
-<?= require_once PATH_ROOT . "/view/templates/head.php" ?>
+<?php require_once PATH_ROOT . "/view/templates/head.php" ?>
 <!-- FIn de head -->
 
 <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/creationrobot.css">
@@ -20,6 +20,8 @@
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <!-- FIn de spécifique -->
 
 </head>
@@ -68,6 +70,11 @@
     <div class="container">
         <main class="main-container">
             <form action="" method="post">
+
+                <div>
+                    <i class="fi fi-rr-arrow-small-left"></i>
+                    <a href="<?= URL ?>/?action=home">Retour vers l'accueil</a>
+                </div>
 
                 <?php if (!empty($erreur)): ?>
                     <div class="message-erreur" role="alert">
@@ -436,7 +443,7 @@
     </div>
     <script src="view/js/couleurs.js"></script>
     <!-- Footer commun -->
-    <?= require_once PATH_ROOT . "/view/templates/footer.php" ?>
+    <?php require_once PATH_ROOT . "/view/templates/footer.php" ?>
     <!-- FIn de footer -->
 </body>
 

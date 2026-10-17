@@ -1,6 +1,6 @@
 <title>Accueil</title>
 
-<?= require_once PATH_ROOT . "/view/templates/head.php" ?>
+<?php require_once PATH_ROOT . "/view/templates/head.php" ?>
 
 <link rel='stylesheet'
     href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
@@ -22,13 +22,13 @@
                 <img src="./view/img/logoNeo.png" alt="logo">
             </div>
             <div class="buttons">
-                <a href="">Se connecter</a>
-                <a href="">S'inscrire</a>
+                <a href="<?= URL ?>/?action=listerobots">Mes robots</a>
                 <?php if (($_SESSION['role'] ?? '') === 'admin'): ?>
                     <a href="<?= htmlspecialchars(URL . '/?action=admin', ENT_QUOTES, 'UTF-8') ?>">
                         Administration
                     </a>
                 <?php endif; ?>
+                <a href="<?= URL ?>/?action=logout">Se déconnecter</a>
             </div>
         </div>
     </header>
@@ -102,7 +102,7 @@
     </main>
 
     <!-- Footer commun -->
-    <?= require_once PATH_ROOT . "/view/templates/footer.php" ?>
+    <?php require_once PATH_ROOT . "/view/templates/footer.php" ?>
     <!-- FIn de footer -->
 </body>
 

@@ -11,19 +11,18 @@
     <p> <?= $msg ?> </p>
     <form method="POST" action="">
 
-        <img src="./img/logo neobot.png" alt="" width="50px" height="60px">
-        <h2>NEOBOT</h2>
+        <img src="<?= URL ?>/view/img/logoNeo.png" alt="" width="50px" height="60px">
         <label>Pseudo</label>
-        <input type="text" name="pseudo" value="<?= $username ?>"><br><br>
+        <input type="text" name="pseudo" value="<?= $username ?>">
 
         <label>Email</label>
-        <input type="email" name="email" placeholder="exemple@gmail.com" required value="<?= $email ?>"><br><br>
+        <input type="email" name="email" placeholder="exemple@gmail.com" required value="<?= $email ?>">
 
         <label>Mot de passe</label>
-        <input type="password" name="mdp" required><br><br>
+        <input type="password" name="mdp" required>
 
-        <input id="submit" type="submit" name="update" value="S'inscrire">
-        <a href=<?= URL ?>"?action=login">J'ai déjà un compte</a>
+        <button id="submit" type="submit" name="update" value="S'inscrire">S'inscrire</button>
+        <a href="<?= URL ?>?action=login">J'ai déjà un compte</a>
     </form>
     <br>
 </body>
