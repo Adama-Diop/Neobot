@@ -2,7 +2,7 @@
    <html>
 
    <head>
-       <title>Log In</title>
+       <title>Page de connexion NeoBot</title>
        <link rel="stylesheet" href="<?= URL ?>/view/css/connexion.css">
    </head>
 

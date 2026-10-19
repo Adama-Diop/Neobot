@@ -1,12 +1,11 @@
 <?php
 
-require_once PATH_ROOT . '/models/adminModel.php';
 require_once PATH_ROOT . '/controllers/adminAuth.php';
 
 function adminRobotsAction()
 {
     verifierAdmin();
-
+    // Récupère le paramètre client dans l'URL, vérifie qu'il représente un entier valide, puis stocke le résultat dans $id_client
     $id_client = filter_input(INPUT_GET, 'client', FILTER_VALIDATE_INT);
 
     if (!$id_client || $id_client <= 0) {

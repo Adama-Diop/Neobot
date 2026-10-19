@@ -73,14 +73,20 @@ Object.keys(configurationsCouleurs).forEach(function (categorie) {
     });
 });
 
+// Récupère la couleur choisie pour chaque catégorie et retrouve le bouton correspondant
 function restaurerCouleurs() {
     Object.keys(configurationsCouleurs).forEach(function (categorie) {
+        // récupère les informations associées à la catégorie actuelle
         const configuration = configurationsCouleurs[categorie];
+        // contient l'identifiant du champ HTML dans lequel se trouve la couleur
         const champCouleur = document.getElementById(configuration.champ);
         const couleur = champCouleur ? champCouleur.value : 'bleu';
 
+        // retrouve le bouton correspondant
         const bouton = document.querySelector(
+            // catégorie de couleurs concernée.
             '.color-picker[data-category="' + categorie + '"] ' +
+            // couleur à sélectionner
             '.color-option[data-color="' + couleur + '"]'
         );
 

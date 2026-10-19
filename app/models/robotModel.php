@@ -457,6 +457,7 @@ function supprimer_robot($id_robot, $id_client)
     $connection = $GLOBALS['connection'];
 
     try {
+        // regroupe plusieurs opération de base de données
         mysqli_begin_transaction($connection);
 
         // 1. Supprimer les fonctionnalités associées

@@ -5,7 +5,7 @@
 
 
     <!-- Head Spécifique -->
-    <title>@@ liste NeoBot</title>
+    <title>Mes Robots</title>
     <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/listerobots.css">
     <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/navbar.css">
 
@@ -47,7 +47,6 @@
 
                         <div class="actions">
                             <div class="action-button">
-                                <span>👁️</span>
                                 <a href="<?= htmlspecialchars(
                                                 URL . '/?action=robotfinal&id=' . (int)$robot['id'],
                                                 ENT_QUOTES,
@@ -59,7 +58,6 @@
 
                             <!-- Bouton Modifier -->
                             <div class="action-button">
-                                <span>🖋️</span>
                                 <a href="<?= URL ?>/?action=creationrobot&robot=<?= $robot['id'] ?>">
                                     Modifier
                                 </a>
@@ -67,8 +65,6 @@
 
                             <!-- Bouton Supprimer -->
                             <div class="action-button">
-                                <span>🗑️</span>
-
                                 <form
                                     method="post"
                                     action="<?= htmlspecialchars(URL . '/?action=supprimerrobot', ENT_QUOTES, 'UTF-8') ?>"

@@ -1,4 +1,4 @@
-<title>@@Création de votre robot</title>
+<title>Création de votre robot</title>
 
 <!-- Head générique -->
 <?php require_once PATH_ROOT . "/view/templates/head.php" ?>
@@ -82,6 +82,7 @@
                     </div>
                 <?php endif; ?>
 
+                <!-- champ caché qui récupère la couleur saisie par l'user ou par défaut la couleur bleu -->
                 <input type="hidden" name="couleur_tete" id="couleur_tete"
                     value="<?= htmlspecialchars($robot_existant['couleur_tete'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
 
@@ -94,6 +95,7 @@
                 <input type="hidden" name="couleur_jambes" id="couleur_jambes"
                     value="<?= htmlspecialchars($robot_existant['couleur_jambes'] ?? 'bleu', ENT_QUOTES, 'UTF-8') ?>">
 
+                <!-- Permet de distinguer la création du robot de la modification d'un robot -->
                 <?php if (!empty($robot_existant)): ?>
                     <input
                         type="hidden"
@@ -117,11 +119,13 @@
                                         <?= isset($robot_existant) && $robot_existant
                                             && (int)$robot_existant['id_base'] === (int)$base['id']
                                             ? 'checked' : '' ?>>
-                                    <img src=<?= $base["img"] ?> alt="robot">
                                 </label>
                                 <div class="base-robot">
                                     <p class="nature"><?= $base["locomotion"] ?></p>
                                     <p class="descriptif"><?= $base["description"] ?></p>
+                                    <p class="prix-piece">
+                                        Prix : <?= number_format((float)$base['prix'], 2, ',', ' ') ?> €
+                                    </p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -184,6 +188,9 @@
                                         class="corpse-img">
 
                                     <p><?= htmlspecialchars($head['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
+                                    <p class="prix-piece">
+                                        Prix : <?= number_format((float)$head['prix'], 2, ',', ' ') ?> €
+                                    </p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
@@ -242,6 +249,9 @@
                                         class="corpse-img">
 
                                     <p><?= htmlspecialchars($body['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
+                                    <p class="prix-piece">
+                                        Prix : <?= number_format((float)$body['prix'], 2, ',', ' ') ?> €
+                                    </p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
@@ -300,6 +310,9 @@
                                         class="corpse-img">
 
                                     <p><?= htmlspecialchars($arm['description'] ?? '', ENT_QUOTES, 'UTF-8') ?></p>
+                                    <p class="prix-piece">
+                                        Prix : <?= number_format((float)$arm['prix'], 2, ',', ' ') ?> €
+                                    </p>
                                 </label>
                             <?php endforeach; ?>
                         </div>
@@ -358,6 +371,9 @@
                                         class="corpse-img">
 
                                     <p><?= htmlspecialchars($leg['description'], ENT_QUOTES, 'UTF-8') ?></p>
+                                    <p class="prix-piece">
+                                        Prix : <?= number_format((float)$leg['prix'], 2, ',', ' ') ?> €
+                                    </p>
                                 </label>
                             <?php endforeach; ?>
                         </div>

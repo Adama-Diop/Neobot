@@ -5,7 +5,7 @@ const faqData = [
       "Connectez-vous à votre compte, cliquez sur Créer un robot puis laissez-vous guider."
   },
   {
-    question: "Comment fonctionnent les abonnements Botify ?",
+    question: "Comment fonctionnent les abonnements NeoBot ?",
     answer:
       "Vous pouvez changer ou annuler votre abonnement à tout moment."
   },

@@ -1,7 +1,7 @@
     <!-- Head générique -->
     <?php require_once PATH_ROOT . "/view/templates/head.php" ?>
     <!-- FIn de head -->
-
+    <title>Page de connexion NeoBot</title>
     <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/robotfinal.css">
     <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/navbar.css">
 
@@ -20,7 +20,7 @@
         <div class="debrief-container">
             <div class="robotanddesc-container">
                 <?php
-                function trouverPieceParIdFinal($pieces, $id)
+                function trouverPieceFinale($pieces, $id)
                 {
                     foreach ($pieces as $piece) {
                         if ((int)$piece['id'] === (int)$id) {
@@ -31,10 +31,10 @@
                     return null;
                 }
 
-                $teteFinale = trouverPieceParIdFinal($all_heads, $robot_existant['id_tete']);
-                $corpsFinal = trouverPieceParIdFinal($all_bodies, $robot_existant['id_corps']);
-                $brasFinal = trouverPieceParIdFinal($all_arms, $robot_existant['id_bras']);
-                $jambesFinales = trouverPieceParIdFinal($all_legs, $robot_existant['id_jambes']);
+                $teteFinale = trouverPieceFinale($all_heads, $robot_existant['id_tete']);
+                $corpsFinal = trouverPieceFinale($all_bodies, $robot_existant['id_corps']);
+                $brasFinal = trouverPieceFinale($all_arms, $robot_existant['id_bras']);
+                $jambesFinales = trouverPieceFinale($all_legs, $robot_existant['id_jambes']);
 
                 $couleurTete = $robot_existant['couleur_tete'] ?? 'bleu';
                 $couleurCorps = $robot_existant['couleur_corps'] ?? 'bleu';
@@ -98,17 +98,6 @@
                         ['nom' => 'Bras', 'colonne' => 'id_bras', 'pieces' => $all_arms],
                         ['nom' => 'Jambes', 'colonne' => 'id_jambes', 'pieces' => $all_legs],
                     ];
-
-                    function trouverDescriptionPiece($pieces, $id)
-                    {
-                        foreach ($pieces as $piece) {
-                            if ((int)$piece['id'] === (int)$id) {
-                                return $piece['description'];
-                            }
-                        }
-
-                        return 'Pièce inconnue';
-                    }
                     ?>
 
                     <div class="steps">
@@ -120,14 +109,24 @@
                                 </div>
 
                                 <p class="description-step">
-                                    <?= htmlspecialchars(
-                                        trouverDescriptionPiece(
-                                            $etape['pieces'],
-                                            $robot_existant[$etape['colonne']]
-                                        ),
-                                        ENT_QUOTES,
-                                        'UTF-8'
-                                    ) ?>
+                                    <?php
+                                    $piece = trouverPieceFinale(
+                                        $etape['pieces'],
+                                        $robot_existant[$etape['colonne']]
+                                    );
+                                    ?>
+
+                                    <?php if ($piece): ?>
+                                        <strong>Référence :</strong>
+                                        <?= htmlspecialchars($piece['ref'] ?? 'Non renseignée', ENT_QUOTES, 'UTF-8') ?>
+
+                                        <br>
+
+                                        <strong>Description :</strong>
+                                        <?= htmlspecialchars($piece['description'] ?? '', ENT_QUOTES, 'UTF-8') ?>
+                                    <?php else: ?>
+                                        Pièce inconnue
+                                    <?php endif; ?>
                                 </p>
                             </div>
                         <?php endforeach; ?>

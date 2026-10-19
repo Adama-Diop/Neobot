@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 14 oct. 2026 à 12:52
+-- Généré le : lun. 19 oct. 2026 à 14:11
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `base` (
   `id` int(11) NOT NULL,
+  `ref` varchar(50) NOT NULL,
   `locomotion` varchar(50) NOT NULL,
   `img` varchar(200) NOT NULL,
   `description` varchar(100) NOT NULL,
@@ -39,10 +40,10 @@ CREATE TABLE `base` (
 -- Déchargement des données de la table `base`
 --
 
-INSERT INTO `base` (`id`, `locomotion`, `img`, `description`, `prix`) VALUES
-(0, 'roulant', '', 'Rapide et fluide, parfaite pour se déplacer sans effort.', 3400.00),
-(1, 'bipede', '', 'Classique et équilibré, parfait pour toutes les aventures.', 6000.00),
-(2, 'rampant', '', 'Agile et compacte, idéale pour explorer les endroits difficiles d’accès.', 1800.00);
+INSERT INTO `base` (`id`, `ref`, `locomotion`, `img`, `description`, `prix`) VALUES
+(0, 'Roulant', 'roulant', '', 'Rapide et fluide, parfaite pour se déplacer sans effort.', 3400.00),
+(1, 'Bipède', 'bipede', '', 'Classique et équilibré, parfait pour toutes les aventures.', 6000.00),
+(2, 'Rampant', 'rampant', '', 'Agile et compacte, idéale pour explorer les endroits difficiles d’accès.', 1800.00);
 
 -- --------------------------------------------------------
 
@@ -242,7 +243,10 @@ INSERT INTO `robots` (`id`, `nom`, `date_creation`, `id_base`, `id_tete`, `id_co
 (24, 'mon robot', '2026-10-13 20:25:09', 1, 2, 1, 3, 1, 9, '', 'bleu', 'vert', 'rose', 'jaune'),
 (25, 'chat rose', '2026-10-13 22:20:28', 1, 6, 3, 4, 3, 9, '', 'rose', 'rose', 'rose', 'rose'),
 (26, 'coucou', '2026-10-14 10:35:39', 1, 6, 4, 2, 5, 1, '', 'vert', 'vert', 'vert', 'jaune'),
-(27, 'salut', '2026-10-14 11:36:23', 1, 6, 1, 3, 2, 1, '', 'violet', 'rose', 'vert', 'violet');
+(27, 'salut', '2026-10-14 11:36:23', 1, 6, 1, 3, 2, 1, '', 'violet', 'rose', 'vert', 'violet'),
+(28, 'test', '2026-10-19 00:00:00', 1, 3, 3, 3, 3, 1, '', 'bleu', 'bleu', 'bleu', 'bleu'),
+(29, 'pres', '2026-10-19 00:00:00', 1, 6, 5, 5, 3, 1, 'Robot chat adorable', 'rose', 'rose', 'rose', 'rose'),
+(30, 'Robot DWWM', '2026-10-19 00:00:00', 1, 6, 6, 4, 3, 1, 'Robot chat qui fait le ménage au GRETA', 'rose', 'rose', 'rose', 'rose');
 
 -- --------------------------------------------------------
 
@@ -296,7 +300,20 @@ INSERT INTO `robot_fonctionnalites` (`id_robot`, `id_fonctionnalite`, `prix_appl
 (27, 6, 599.99),
 (27, 7, 200.00),
 (27, 12, 450.00),
-(27, 13, 320.00);
+(27, 13, 320.00),
+(28, 6, 599.99),
+(28, 10, 2000.00),
+(28, 11, 450.00),
+(28, 12, 450.00),
+(29, 1, 150.00),
+(29, 2, 140.00),
+(29, 3, 300.00),
+(29, 4, 900.00),
+(29, 6, 599.99),
+(30, 2, 140.00),
+(30, 3, 300.00),
+(30, 4, 900.00),
+(30, 6, 599.99);
 
 -- --------------------------------------------------------
 
@@ -318,11 +335,11 @@ CREATE TABLE `tete` (
 
 INSERT INTO `tete` (`id`, `ref`, `img`, `description`, `prix`) VALUES
 (1, 'RT10', 'view/img/tete/RT10-bleu.png', 'Classique et souriante, avec une petite antenne.', 1099.99),
-(2, 'RT20', 'view/img/tete/RT20-bleu.png', 'Dynamique avec une visière originale et expressive.', 0.00),
-(3, 'RT30', 'view/img/tete/RT30-bleu.png', 'Moderne avec deux grands yeux lumineux.', 0.00),
-(4, 'RT40', 'view/img/tete/RT40-bleu.png', 'Minimaliste avec un écran large et élégant.', 0.00),
-(5, 'RT50', 'view/img/tete/RT50-bleu.png', 'Futuriste avec une forme ronde et un œil central.', 0.00),
-(6, 'RT60', 'view/img/tete/RT60-bleu.png', 'Adorable avec des oreilles de chat.', 0.00);
+(2, 'RT20', 'view/img/tete/RT20-bleu.png', 'Dynamique avec une visière originale et expressive.', 1334.00),
+(3, 'RT30', 'view/img/tete/RT30-bleu.png', 'Moderne avec deux grands yeux lumineux.', 1820.00),
+(4, 'RT40', 'view/img/tete/RT40-bleu.png', 'Minimaliste avec un écran large et élégant.', 1950.00),
+(5, 'RT50', 'view/img/tete/RT50-bleu.png', 'Futuriste avec une forme ronde et un œil central.', 2780.00),
+(6, 'RT60', 'view/img/tete/RT60-bleu.png', 'Adorable avec des oreilles de chat.', 2999.00);
 
 --
 -- Index pour les tables déchargées
@@ -447,7 +464,7 @@ ALTER TABLE `jambes`
 -- AUTO_INCREMENT pour la table `robots`
 --
 ALTER TABLE `robots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `tete`

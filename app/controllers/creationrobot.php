@@ -12,10 +12,15 @@ function setRobot()
         // return;
         exit();
     }
+
+    // Variables par défaut
     $robot_existant = null;
     $fonctionnalites_selectionnees = [];
+
+    // Détecter un robot à modifier
     if (isset($_GET['robot'])) {
 
+        // Gère les cas d'erreurs
         $id_robot = (int) $_GET['robot'];
         $robot_existant = get_robot_by_id($id_robot);
 
@@ -28,12 +33,13 @@ function setRobot()
             http_response_code(403);
             exit("Vous n'avez pas le droit de modifier ce robot.");
         }
-
+        //  charge les fonctionnalités déjà associées au robot pour précocher le formulaire
         $fonctionnalites_selectionnees = get_fonctionnalites_robot(
             (int)$robot_existant['id']
         );
     }
 
+    // Initialisation des champs du formulaire
     $id_base = null;
     $id_head = null;
     $id_body = null;
@@ -42,6 +48,7 @@ function setRobot()
     $nom = null;
     $description = null;
 
+    // Charger les listes de pièces et fonctionnalités
     $all_bases = get_all_bases();
     $all_heads = get_all_heads();
     $all_arms = get_all_arms();
@@ -77,6 +84,7 @@ function setRobot()
                 &$couleur_jambes
             ] as &$couleur
         ) {
+            // vérifie si la couleur est autorisée
             if (!in_array($couleur, $couleurs_autorisees, true)) {
                 $couleur = 'bleu';
             }
@@ -92,6 +100,7 @@ function setRobot()
 
         $erreur = '';
 
+        // On vérifie que les champs ont bien été envoyés
         if (isset($_POST['base'])) {
             $id_base = trim(htmlspecialchars($_POST['base']));
         }

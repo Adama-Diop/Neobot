@@ -8,7 +8,7 @@ function logIn()
     $error_msg = "";
     // Démarrage de la session
     session_start();
-    // Cer test ne passe pas on reste redirigé vers login (derriere URL il y a index.php )
+    // Ce test ne passe pas on reste redirigé vers login (derriere URL il y a index.php )
     if (isset($_SESSION['client_id'])) {
         // connecté -> redirection vers la page d'accueil
         header('Location:' . URL);
