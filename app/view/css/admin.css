@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
     margin: 0;
+    min-height: 100vh;
+
     background-image: url("../img/fond_body.png");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 }
 
 h1 {
     margin-bottom: 0;
+    font-size: 1.6rem;
 }
 
 a {
@@ -18,53 +28,436 @@ a {
 }
 
 .admin-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px;
     text-align: center;
 }
 
 .admin-container p {
-    margin: 0 0 50px 0;
+    margin: 0 0 30px;
 }
+
+/* Menu d'administration */
 
 .admin-menu {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 30px;
+    padding: 20px;
+
     background-color: white;
     border-radius: 10px;
-    width: 360px;
-    margin: auto;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 .admin-menu ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.clients-table {
-    display: flex;
-    flex-direction: column;
+.admin-menu li {
+    margin-bottom: 12px;
+}
+
+/* Conteneurs des tableaux */
+
+.clients-table,
+.robots-table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 30px auto 0;
+    padding: 16px;
+
     background-color: white;
     border-radius: 10px;
-    width: 1000px;
-    margin: auto;
-    margin-top: 50px;
     text-align: center;
-    padding: 30px;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Tableaux */
+
+.clients-table table,
+.robots-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 8px;
+    overflow-wrap: anywhere;
 }
 
 th {
     padding-bottom: 20px;
 }
 
+/* Images dans les tableaux */
+
+.clients-table img,
+.robots-table img {
+    max-width: 70px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ========================================
+   TABLETTE : à partir de 600px
+   ======================================== */
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .admin-container {
+        padding: 30px 24px;
+    }
+
+    .admin-container p {
+        margin-bottom: 40px;
+    }
+
+    .clients-table,
+    .robots-table {
+        padding: 24px;
+        margin-top: 40px;
+    }
+
+    td {
+        padding: 14px 12px;
+    }
+}
+
+/* ========================================
+   ORDINATEUR : à partir de 900px
+   ======================================== */
+
+@media (min-width: 900px) {
+    .admin-container {
+        padding: 40px 30px;
+    }
+
+    .clients-table,
+    .robots-table {
+        width: 100%;
+        max-width: 1060px;
+        padding: 30px;
+        margin-top: 50px;
+    }
+
+    .admin-menu {
+        padding: 24px;
+    }
+
+    .clients-table img,
+    .robots-table img {
+        max-width: 90px;
+    }
+}
+
+/* MOBILE : chaque ligne devient une carte */
+
+.clients-table,
 .robots-table {
+    width: 100%;
+    padding: 12px;
+    overflow: visible;
+}
+
+.clients-table table,
+.robots-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Masquer les titres des colonnes */
+.clients-table thead,
+.robots-table thead {
+    display: none;
+}
+
+/* Chaque ligne devient une carte */
+.clients-table tbody tr,
+.robots-table tbody tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f8f6ff;
+    border: 1px solid #e8e0f5;
+    border-radius: 12px;
+}
+
+/* Chaque cellule occupe une ligne */
+.clients-table tbody td,
+.robots-table tbody td {
     display: flex;
-    flex-direction: column;
-    background-color: white;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    width: 100%;
+    padding: 10px 0;
+    text-align: right;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid #e8e0f5;
+}
+
+/* Afficher le nom de chaque colonne devant sa valeur */
+.clients-table tbody td:nth-child(1)::before {
+    content: "ID";
+}
+
+.clients-table tbody td:nth-child(2)::before {
+    content: "Pseudo";
+}
+
+.clients-table tbody td:nth-child(3)::before {
+    content: "E-mail";
+}
+
+.clients-table tbody td:nth-child(4)::before {
+    content: "Date d'inscription";
+}
+
+.clients-table tbody td:nth-child(5)::before {
+    content: "Actions";
+}
+
+.clients-table tbody td::before,
+.robots-table tbody td::before {
+    flex: 0 0 40%;
+    text-align: left;
+    font-weight: 600;
+    overflow-wrap: normal;
+}
+
+/* Dernière cellule sans bordure */
+.clients-table tbody td:last-child,
+.robots-table tbody td:last-child {
+    border-bottom: none;
+}
+
+/* Les liens restent lisibles */
+.clients-table td a,
+.robots-table td a {
+    overflow-wrap: anywhere;
+}
+
+/* TABLETTE ET ORDINATEUR */
+@media (min-width: 768px) {
+
+    .clients-table,
+    .robots-table {
+        max-width: 1060px;
+        width: 100%;
+        margin: 50px auto 0;
+        padding: 30px;
+        overflow-x: auto;
+    }
+
+    .clients-table thead,
+    .robots-table thead {
+        display: table-header-group;
+    }
+
+    .clients-table tbody tr,
+    .robots-table tbody tr {
+        display: table-row;
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    .clients-table tbody td,
+    .robots-table tbody td {
+        display: table-cell;
+        width: auto;
+        padding: 12px 8px;
+        text-align: center;
+        border-bottom: none;
+    }
+
+    /* Supprimer les libellés ajoutés en CSS mobile */
+    .clients-table tbody td::before,
+    .robots-table tbody td::before {
+        content: none !important;
+        display: none !important;
+    }
+}
+
+/* ========================================
+   MOBILE FIRST : tableau des robots
+   ======================================== */
+
+.robots-table {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 30px auto 0;
+    overflow: visible;
+    background: white;
     border-radius: 10px;
-    width: 1000px;
-    margin: auto;
-    margin-top: 50px;
-    text-align: center;
-    padding: 30px;
+}
+
+.robots-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Masquer les en-têtes sur mobile */
+.robots-table thead {
+    display: none;
+}
+
+/* Une ligne = une carte */
+.robots-table tbody tr {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f8f6ff;
+    border: 1px solid #e8e0f5;
+    border-radius: 12px;
+}
+
+/* Une cellule = une ligne dans la carte */
+.robots-table tbody td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 0;
+    text-align: right;
+    overflow-wrap: anywhere;
+    border-bottom: 1px solid #e8e0f5;
+}
+
+/* Libellés des colonnes */
+.robots-table tbody td::before {
+    flex: 0 0 44%;
+    text-align: left;
+    font-weight: 600;
+    overflow-wrap: normal;
+}
+
+/* Adapter les libellés à l'ordre réel des colonnes */
+.robots-table tbody td:nth-child(1)::before {
+    content: "ID";
+}
+
+.robots-table tbody td:nth-child(2)::before {
+    content: "Nom du robot";
+}
+
+.robots-table tbody td:nth-child(3)::before {
+    content: "Client";
+}
+
+.robots-table tbody td:nth-child(4)::before {
+    content: "Base";
+}
+
+.robots-table tbody td:nth-child(5)::before {
+    content: "Tête";
+}
+
+.robots-table tbody td:nth-child(6)::before {
+    content: "Corps";
+}
+
+.robots-table tbody td:nth-child(7)::before {
+    content: "Bras";
+}
+
+.robots-table tbody td:nth-child(8)::before {
+    content: "Jambes";
+}
+
+.robots-table tbody td:nth-child(9)::before {
+    content: "Date de création";
+}
+
+.robots-table tbody td:nth-child(10)::before {
+    content: "Prix des pièces";
+}
+
+.robots-table tbody td:nth-child(11)::before {
+    content: "Prix des fonctionnalités";
+}
+
+.robots-table tbody td:nth-child(12)::before {
+    content: "Prix total";
+}
+
+.robots-table tbody td:nth-child(13)::before {
+    content: "Description";
+}
+
+/* Dernière cellule sans bordure */
+.robots-table tbody td:last-child {
+    border-bottom: none;
+}
+
+
+/* ========================================
+   TABLETTE ET ORDINATEUR
+   ======================================== */
+
+@media (min-width: 768px) {
+    .robots-table {
+        width: 100%;
+        max-width: 1400px;
+        margin: 50px auto 0;
+        padding: 24px;
+        overflow-x: auto;
+    }
+
+    .robots-table table {
+        width: 100%;
+        min-width: 1100px;
+        border-collapse: collapse;
+    }
+
+    /* Réafficher les en-têtes */
+    .robots-table thead {
+        display: table-header-group;
+    }
+
+    /* Réafficher les lignes classiques */
+    .robots-table tbody tr {
+        display: table-row;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+
+    /* Réafficher les cellules classiques */
+    .robots-table tbody td {
+        display: table-cell;
+        width: auto;
+        padding: 12px 8px;
+        text-align: center;
+        overflow-wrap: normal;
+        border-bottom: none;
+    }
+
+    /* Supprimer les libellés mobiles */
+    .robots-table tbody td::before {
+        content: none !important;
+        display: none !important;
+    }
 }

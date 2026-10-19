@@ -52,7 +52,7 @@ hr {
 }
 
 .name-step span {
-    background: blueviolet;
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     border-radius: 50px;
     width: 20px;
     height: 20px;
@@ -124,7 +124,7 @@ hr {
 .choice .buttons a {
     text-decoration: none;
     color: white;
-    background-color: blueviolet;
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     padding: 5px 10px;
     border-radius: 25px;
     font-size: 0.7em;
@@ -201,7 +201,6 @@ hr {
     }
 
     .name-step span {
-        background: blueviolet;
         border-radius: 50px;
         width: 20px;
         height: 20px;
@@ -279,7 +278,6 @@ hr {
     .choice .buttons a {
         text-decoration: none;
         color: white;
-        background-color: blueviolet;
         border-radius: 25px;
         font-size: 0.8em;
         padding: 5px 15px;

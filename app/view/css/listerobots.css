@@ -35,7 +35,7 @@ p {
 }
 
 .robots-container .mes-robots a {
-    background-color: rgb(83, 0, 227);
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     color: white;
     border-radius: 25px;
     padding: 8px 16px;
@@ -154,7 +154,6 @@ form button {
     }
 
     .robots-container .mes-robots a {
-        background-color: rgb(83, 0, 227);
         color: white;
         border-radius: 5px;
         padding: 10px 23px;
@@ -186,7 +185,6 @@ form button {
     }
 
     .robots-container .mes-robots a {
-        background-color: rgb(83, 0, 227);
         color: white;
         border-radius: 5px;
         padding: 10px 23px;

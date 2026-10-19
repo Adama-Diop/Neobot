@@ -51,7 +51,7 @@ p {
     width: 200px;
     text-align: center;
     color: white;
-    background-color: rgb(94, 30, 155);
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     padding: 15px;
     border-radius: 20px;
     margin: 30px auto;
@@ -88,7 +88,7 @@ p {
 }
 
 .step-image span {
-    background: blueviolet;
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     border-radius: 50px;
     width: 35px;
     height: 35px;
@@ -108,7 +108,7 @@ p {
     display: block;
     text-align: center;
     color: white;
-    background-color: rgb(94, 30, 155);
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     padding: 10px 13px;
     border-radius: 20px;
     margin: 30px auto;
@@ -133,7 +133,7 @@ p {
     width: 100%;
     text-align: center;
     color: white;
-    background-color: rgb(94, 30, 155);
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     padding: 10px 13px;
     border-radius: 20px;
 }
@@ -327,7 +327,7 @@ p {
         width: 200px;
         text-align: center;
         color: white;
-        background-color: rgb(94, 30, 155);
+        background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
         padding: 15px;
         border-radius: 20px;
         margin: 0;
@@ -360,7 +360,7 @@ p {
     }
 
     .text-intro p {
-        text-align: left;
+        text-align: center;
         font-size: 22px;
     }
 }

@@ -150,7 +150,7 @@ button {
     width: 200px;
     text-align: center;
     color: white;
-    background-color: rgb(94, 30, 155);
+    background: linear-gradient(0.65turn, #460bea, #6726f4, #903cf6);
     padding: 8px 12px;
     border-radius: 20px;
     margin: 0;
