@@ -9,6 +9,11 @@ img {
     width: 100%;
 }
 
+.home-link {
+    color: blueviolet;
+    font-weight: 570;
+}
+
 .corpse-img {
     width: 50%;
 }
@@ -144,7 +149,7 @@ label p {
     margin-top: 8px;
 }
 
-button {
+#submit {
     display: inline;
     border: none;
     width: 200px;

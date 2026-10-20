@@ -279,6 +279,7 @@ p {
         display: flex;
         justify-content: center;
         align-items: center;
+        align-items: flex-start;
     }
 
     .step {
@@ -287,6 +288,7 @@ p {
         justify-content: center;
         align-items: center;
         flex: 1;
+        gap: 15px;
     }
 
     .step-image {

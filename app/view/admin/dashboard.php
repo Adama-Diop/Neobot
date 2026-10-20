@@ -13,7 +13,7 @@
 
     <div>
         <i class="fi fi-rr-arrow-small-left"></i>
-        <a href="<?= URL ?>/?action=home">Retour vers l'accueil</a>
+        <a href="<?= URL ?>/?action=home" class="home-link">Retour vers l'accueil</a>
     </div>
 
     <div class="admin-container">

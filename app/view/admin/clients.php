@@ -12,7 +12,7 @@
 <body>
     <div>
         <i class="fi fi-rr-arrow-small-left"></i>
-        <a href="<?= URL ?>/?action=admin">Retour au tableau de bord</a>
+        <a href="<?= URL ?>/?action=admin" class="home-link">Retour au tableau de bord</a>
     </div>
 
     <div class="admin-container">

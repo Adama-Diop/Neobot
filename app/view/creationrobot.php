@@ -8,20 +8,13 @@
 <link rel="stylesheet" href="<?php echo URL . "/view/"  ?>css/navbar.css">
 
 <!-- Head Spécifique -->
-<link rel='stylesheet'
-    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
-<link rel='stylesheet'
-    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<link rel='stylesheet'
-    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-chubby/css/uicons-thin-chubby.css'>
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/4.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
 <!-- FIn de spécifique -->
 
 </head>
@@ -36,31 +29,31 @@
             </div>
             <nav class="navbar-links">
                 <div class="link">
-                    <i class="fi fi-bs-home"></i>
+                    <i class="fi fi-tr-choose-alt" style="font-size: 20px;"></i>
                     <a href="#base">1. Base</a>
                 </div>
                 <div class="link">
-                    <i class="fi fi-rr-bulb"></i>
+                    <i class="fi fi-tr-robot" style="font-size: 20px;"></i>
                     <a href="#head">2. tête</a>
                 </div>
                 <div class="link">
-                    <i class="fi fi-rr-settings"></i>
+                    <i class="fi fi-tr-skeleton" style="font-size: 20px;"></i>
                     <a href="#body">3. Corps</a>
                 </div>
                 <div class="link">
-                    <i class="fi fi-rr-settings"></i>
+                    <i class="fi fi-ts-dumbbell-fitness" style="font-size: 20px;"></i>
                     <a href="#arm">4. Bras</a>
                 </div>
                 <div class="link">
-                    <i class="fi fi-rr-settings"></i>
+                    <i class="fi fi-tr-barefoot" style="font-size: 20px;"></i>
                     <a href="#leg">5. Jambes</a>
                 </div>
                 <div class="link">
-                    <i class="fi fi-rr-settings"></i>
+                    <i class="fi fi-tc-description" style="font-size: 20px;"></i>
                     <a href="#details">6. Détails</a>
                 </div>
                 <div class="link">
-                    <i class="fi fi-rr-settings"></i>
+                    <i class="fi fi-tr-id-card" style="font-size: 20px;"></i>
                     <a href="#identity">7. Identité</a>
                 </div>
             </nav>
@@ -73,7 +66,7 @@
 
                 <div>
                     <i class="fi fi-rr-arrow-small-left"></i>
-                    <a href="<?= URL ?>/?action=home">Retour vers l'accueil</a>
+                    <a href="<?= URL ?>/?action=home" class="home-link">Retour vers l'accueil</a>
                 </div>
 
                 <?php if (!empty($erreur)): ?>
@@ -449,7 +442,7 @@
                     </div>
                 </div>
 
-                <button type="submit" name="end">
+                <button id="submit" type="submit" name="end">
                     <?= !empty($robot_existant)
                         ? 'Enregistrer les modifications'
                         : 'Terminer et valider le robot' ?>

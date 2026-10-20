@@ -52,7 +52,7 @@
                 <div class="step">
                     <div class="step-image">
                         <span>01</span>
-                        <i class="fi fi-sr-paintbrush-pencil" style="font-size: 30px; color: blueviolet;"></i>
+                        <i class="fi fi-sr-paintbrush-pencil" style="font-size: 30px; color: #460bea;"></i>
                     </div>
                     <div class="description-step">
                         <h4>Concevez</h4>
@@ -63,7 +63,7 @@
                 <div class="step">
                     <div class="step-image">
                         <span>02</span>
-                        <i class="fi fi-sr-customize" style="font-size: 30px; color: blueviolet;"></i>
+                        <i class="fi fi-sr-customize" style="font-size: 30px; color: #460bea;"></i>
                     </div>
                     <div class="description-step">
                         <h4>Personnalisez</h4>
@@ -74,7 +74,7 @@
                 <div class="step">
                     <div class="step-image">
                         <span>03</span>
-                        <i class="fi fi-ss-paper-plane" style="font-size: 30px; color: blueviolet; "></i>
+                        <i class="fi fi-ss-paper-plane" style="font-size: 30px; color: #460bea;"></i>
                     </div>
                     <div class="description-step">
                         <h4>Déployez</h4>
